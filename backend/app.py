@@ -17,9 +17,11 @@ from .game import DIFFICULTY_LEVELS, GameStore
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
-UPLOADS_DIR = BASE_DIR / "backend" / "uploads"
+DATA_DIR = BASE_DIR / "data"
+UPLOADS_DIR = DATA_DIR / "uploads"
 
 load_dotenv(BASE_DIR / ".env")
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="whereami")
@@ -152,6 +154,21 @@ def logout(x_session_token: str | None = Header(default=None)) -> dict[str, bool
     if x_session_token:
         auth_service.logout(x_session_token)
     return {"ok": True}
+
+
+@app.delete("/api/stats/best-time/{difficulty}")
+def clear_best_time(
+    difficulty: str,
+    x_session_token: str | None = Header(default=None),
+) -> dict[str, Any]:
+    if not x_session_token:
+        raise HTTPException(status_code=401, detail="Missing session.")
+    try:
+        return auth_service.clear_best_time(x_session_token, difficulty)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except KeyError as exc:
+        raise HTTPException(status_code=401, detail="Session expired.") from exc
 
 
 @app.post("/api/game/new")

@@ -4,6 +4,7 @@ const state = {
   user: null,
   bestTimes: {},
   roundResults: [],
+  lastCompletedDifficulty: "",
   gameId: null,
   roundId: null,
   difficulty: "easy",
@@ -25,6 +26,8 @@ const state = {
   initializing: false,
   mapPinnedOpen: false,
 };
+
+const LAST_EMAIL_KEY = "whereami.lastEmail";
 
 const elements = {
   startGame: document.querySelector("#start-game"),
@@ -61,7 +64,11 @@ const elements = {
   resultSummary: document.querySelector("#result-summary"),
   resultsModal: document.querySelector("#results-modal"),
   resultsModalSummary: document.querySelector("#results-modal-summary"),
+  resultsModalDifficulty: document.querySelector("#results-modal-difficulty"),
+  resultsModalBestTimeRow: document.querySelector("#results-modal-best-time-row"),
+  resultsModalBestTime: document.querySelector("#results-modal-best-time"),
   resultsModalBody: document.querySelector("#results-modal-body"),
+  clearBestTime: document.querySelector("#clear-best-time"),
   closeResultsModal: document.querySelector("#close-results-modal"),
   map: document.querySelector("#map"),
 };
@@ -149,14 +156,55 @@ function renderResultsTable() {
   }
 }
 
+function formatDifficultyLabel(difficulty) {
+  if (!difficulty) {
+    return "";
+  }
+  return difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+}
+
+function syncResultsMeta() {
+  elements.resultsModalDifficulty.textContent =
+    formatDifficultyLabel(state.lastCompletedDifficulty);
+
+  const bestTime = state.bestTimes?.[state.lastCompletedDifficulty];
+  const showBestTime =
+    state.user?.kind === "user" && typeof bestTime === "number";
+
+  elements.resultsModalBestTimeRow.classList.toggle("hidden", !showBestTime);
+  elements.clearBestTime.classList.toggle("hidden", !showBestTime);
+  if (showBestTime) {
+    elements.resultsModalBestTime.textContent = formatDuration(bestTime);
+  } else {
+    elements.resultsModalBestTime.textContent = "";
+  }
+}
+
 function showResultsModal(message) {
   elements.resultsModalSummary.textContent = message;
   renderResultsTable();
+  syncResultsMeta();
   elements.resultsModal.classList.remove("hidden");
 }
 
 function hideResultsModal() {
   elements.resultsModal.classList.add("hidden");
+}
+
+function loadRememberedEmail() {
+  const rememberedEmail = window.localStorage.getItem(LAST_EMAIL_KEY) || "";
+  if (rememberedEmail) {
+    elements.authEmail.value = rememberedEmail;
+  }
+}
+
+function rememberEmail(email) {
+  const normalizedEmail = email.trim();
+  if (normalizedEmail) {
+    window.localStorage.setItem(LAST_EMAIL_KEY, normalizedEmail);
+  } else {
+    window.localStorage.removeItem(LAST_EMAIL_KEY);
+  }
 }
 
 function storeSession(session) {
@@ -172,6 +220,7 @@ function clearSession() {
   state.user = null;
   state.bestTimes = {};
   state.roundResults = [];
+  state.lastCompletedDifficulty = "";
   state.gameId = null;
   state.roundId = null;
   window.localStorage.removeItem("whereami.sessionToken");
@@ -220,6 +269,7 @@ async function restoreSession() {
 
 async function bootstrap() {
   try {
+    loadRememberedEmail();
     const config = await fetchJson("/api/config");
     if (!config.configured) {
       elements.statusMessage.textContent = "Missing Google Maps API key.";
@@ -512,6 +562,7 @@ async function startGame() {
     body: JSON.stringify({ difficulty: state.difficulty }),
   });
   state.roundResults = [];
+  state.lastCompletedDifficulty = "";
   state.gameId = round.game_id;
   await renderRound(round);
   elements.statusMessage.textContent = "";
@@ -583,6 +634,7 @@ async function submitGuess() {
     startTimer(result.elapsed_seconds || 0);
   } else {
     stopTimer(result.elapsed_seconds || 0);
+    state.lastCompletedDifficulty = state.difficulty;
     if (result.best_times) {
       state.bestTimes = result.best_times;
     }
@@ -604,6 +656,7 @@ async function nextRound() {
     state.roundId = null;
     stopTimer(round.elapsed_seconds || 0);
     elements.nextRoundInline.classList.add("hidden");
+    state.lastCompletedDifficulty = state.lastCompletedDifficulty || state.difficulty;
     showResultsModal(
       `Final score: ${round.total_score}. Total time: ${formatDuration(round.elapsed_seconds || 0)} across ${round.round_number} rounds.`
     );
@@ -633,6 +686,7 @@ elements.registerButton.addEventListener("click", async () => {
       method: "POST",
       body: formData,
     });
+    rememberEmail(elements.authEmail.value);
     storeSession(session);
     elements.statusMessage.textContent = "";
   } catch (error) {
@@ -649,11 +703,16 @@ elements.loginButton.addEventListener("click", async () => {
         password: elements.authPassword.value,
       }),
     });
+    rememberEmail(elements.authEmail.value);
     storeSession(session);
     elements.statusMessage.textContent = "";
   } catch (error) {
     elements.statusMessage.textContent = error.message;
   }
+});
+
+elements.authEmail.addEventListener("input", () => {
+  rememberEmail(elements.authEmail.value);
 });
 
 elements.guestButton.addEventListener("click", async () => {
@@ -754,6 +813,21 @@ elements.nextRoundInline.addEventListener("click", () => {
 
 elements.closeResultsModal.addEventListener("click", () => {
   hideResultsModal();
+});
+
+elements.clearBestTime.addEventListener("click", async () => {
+  if (!state.lastCompletedDifficulty || state.user?.kind !== "user") {
+    return;
+  }
+  try {
+    const session = await fetchJson(`/api/stats/best-time/${state.lastCompletedDifficulty}`, {
+      method: "DELETE",
+    });
+    storeSession(session);
+    syncResultsMeta();
+  } catch (error) {
+    elements.statusMessage.textContent = error.message;
+  }
 });
 
 bootstrap();

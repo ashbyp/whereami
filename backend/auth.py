@@ -69,3 +69,14 @@ class AuthService:
     def logout(self, token: str) -> None:
         self.database.delete_session(token)
 
+    def clear_best_time(self, token: str, difficulty: str) -> dict[str, Any]:
+        session = self.database.get_session(token)
+        user = session["user"]
+        if user["kind"] != "user":
+            raise ValueError("Guests do not have saved best times.")
+        self.database.clear_best_time(user["id"], difficulty)
+        return {
+            "token": token,
+            "user": user,
+            "best_times": self.database.get_best_times(user["id"]),
+        }

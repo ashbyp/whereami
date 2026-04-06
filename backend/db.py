@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
-DB_PATH = Path(__file__).with_name("whereami.db")
+DB_PATH = Path(__file__).resolve().parent.parent / "data" / "whereami.db"
 
 
 def utc_now() -> str:
@@ -19,6 +19,7 @@ def utc_now() -> str:
 class Database:
     def __init__(self, db_path: Path = DB_PATH) -> None:
         self.db_path = db_path
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._init_db()
 
     def _connect(self) -> sqlite3.Connection:
@@ -73,14 +74,19 @@ class Database:
         ).hex()
 
     def _serialize_user(self, row: sqlite3.Row) -> dict[str, Any]:
-        email = row["user_email"]
+        row_keys = set(row.keys())
+        user_id_key = "user_id" if "user_id" in row_keys else "id"
+        email_key = "user_email" if "user_email" in row_keys else "email"
+        avatar_key = "user_avatar_url" if "user_avatar_url" in row_keys else "avatar_url"
+
+        email = row[email_key]
         display_name = email.split("@", 1)[0]
         return {
             "kind": "user",
-            "id": row["user_id"],
+            "id": row[user_id_key],
             "email": email,
             "display_name": display_name,
-            "avatar_url": row["user_avatar_url"] or "",
+            "avatar_url": row[avatar_key] or "",
         }
 
     def _serialize_guest(self, row: sqlite3.Row) -> dict[str, Any]:
@@ -239,3 +245,22 @@ class Database:
                 (user_id,),
             ).fetchall()
         return {row["difficulty"]: int(row["best_time"]) for row in rows}
+
+    def clear_best_time(self, user_id: str, difficulty: str) -> None:
+        with self._connect() as connection:
+            row = connection.execute(
+                """
+                SELECT id
+                FROM game_results
+                WHERE user_id = ? AND difficulty = ?
+                ORDER BY elapsed_seconds ASC, completed_at ASC
+                LIMIT 1
+                """,
+                (user_id, difficulty),
+            ).fetchone()
+            if row is None:
+                return
+            connection.execute(
+                "DELETE FROM game_results WHERE id = ?",
+                (row["id"],),
+            )

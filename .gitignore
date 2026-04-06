@@ -10,5 +10,5 @@ build/
 dist/
 *.egg-info/
 .env
-backend/uploads/
-backend/whereami.db
+data/uploads/
+data/whereami.db
