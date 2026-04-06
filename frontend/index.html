@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>whereami</title>
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=1" />
-    <link rel="stylesheet" href="/assets/styles.css?v=24" />
+    <link rel="stylesheet" href="/assets/styles.css?v=31" />
   </head>
   <body>
     <main class="app-shell">
@@ -18,20 +18,10 @@
           <span class="logo-text">Where am I?</span>
         </div>
         <div class="topbar-actions">
-          <div id="difficulty-picker" class="difficulty-picker" aria-label="Difficulty">
-            <button class="difficulty-chip active" data-difficulty="easy" type="button">
-              Easy
-            </button>
-            <button class="difficulty-chip" data-difficulty="medium" type="button">
-              Medium
-            </button>
-            <button class="difficulty-chip" data-difficulty="hard" type="button">
-              Hard
-            </button>
-            <button class="difficulty-chip" data-difficulty="impossible" type="button">
-              Impossible
-            </button>
-          </div>
+          <label class="mode-picker">
+            <span class="mode-picker-label">Mode</span>
+            <select id="mode-picker" class="mode-select"></select>
+          </label>
           <div class="score-pill">
             <span id="round-counter">0/5</span>
             <span class="score-separator"></span>
@@ -140,8 +130,8 @@
           <p id="results-modal-summary" class="results-copy"></p>
           <div class="results-meta">
             <div class="results-meta-row">
-              <span class="results-meta-label">Difficulty</span>
-              <span id="results-modal-difficulty" class="results-meta-value"></span>
+              <span class="results-meta-label">Mode</span>
+              <span id="results-modal-mode" class="results-meta-value"></span>
             </div>
             <div
               id="results-modal-best-time-row"
@@ -177,6 +167,6 @@
       </div>
     </main>
 
-    <script src="/assets/app.js?v=30" type="module"></script>
+    <script src="/assets/app.js?v=35" type="module"></script>
   </body>
 </html>

@@ -14,6 +14,23 @@ from .scoring import haversine_distance_meters, score_guess
 LOCATIONS_PATH = Path(__file__).with_name("locations.json")
 ROUNDS_PER_GAME = 5
 DIFFICULTY_LEVELS = ("easy", "medium", "hard", "impossible")
+SUBJECTS: tuple[dict[str, str], ...] = (
+    {"id": "european-capitals", "label": "European Capitals"},
+    {"id": "us-states", "label": "US States"},
+    {"id": "world-capitals", "label": "World Capitals"},
+    {"id": "towns-in-england", "label": "Towns In England"},
+    {"id": "uk-countryside", "label": "UK Countryside"},
+)
+SUBJECT_IDS = tuple(subject["id"] for subject in SUBJECTS)
+SUBJECT_RULE_DIFFICULTY = "medium"
+GAME_MODES: tuple[dict[str, str], ...] = (
+    {"id": "easy", "label": "Easy"},
+    {"id": "medium", "label": "Medium"},
+    {"id": "hard", "label": "Hard"},
+    {"id": "impossible", "label": "Impossible"},
+    *SUBJECTS,
+)
+GAME_MODE_LABELS = {mode["id"]: mode["label"] for mode in GAME_MODES}
 
 DIFFICULTY_RULES: dict[str, dict[str, Any]] = {
     "easy": {
@@ -54,7 +71,8 @@ class RoundState:
 class GameState:
     game_id: str
     owner_token: str
-    difficulty: str
+    mode: str
+    rules_difficulty: str
     rounds: list[RoundState]
     started_at: float
     current_round_index: int = 0
@@ -73,25 +91,34 @@ class GameStore:
             self._locations: list[dict[str, Any]] = json.load(handle)
         self._games: dict[str, GameState] = {}
 
-    def create_game(self, owner_token: str, difficulty: str) -> GameState:
-        if difficulty not in DIFFICULTY_LEVELS:
-            msg = f"Difficulty must be one of: {', '.join(DIFFICULTY_LEVELS)}."
+    def create_game(self, owner_token: str, mode: str) -> GameState:
+        if mode not in GAME_MODE_LABELS:
+            msg = f"Mode must be one of: {', '.join(GAME_MODE_LABELS)}."
             raise ValueError(msg)
 
-        eligible_locations = [
-            location
-            for location in self._locations
-            if difficulty in location.get("difficulties", [])
-        ]
+        if mode in DIFFICULTY_LEVELS:
+            rules_difficulty = mode
+            eligible_locations = [
+                location
+                for location in self._locations
+                if rules_difficulty in location.get("difficulties", [])
+            ]
+        else:
+            rules_difficulty = SUBJECT_RULE_DIFFICULTY
+            eligible_locations = [
+                location
+                for location in self._locations
+                if mode in location.get("subjects", [])
+            ]
         if len(eligible_locations) < ROUNDS_PER_GAME:
-            msg = f"Not enough locations configured for '{difficulty}'."
+            msg = f"Not enough locations configured for '{mode}'."
             raise ValueError(msg)
 
         sampled_locations = random.sample(eligible_locations, k=ROUNDS_PER_GAME)
         rounds = [
             RoundState(
                 round_id=str(uuid4()),
-                location=self._build_round_location(location, difficulty),
+                location=self._build_round_location(location, rules_difficulty),
             )
             for location in sampled_locations
         ]
@@ -99,7 +126,8 @@ class GameStore:
         game = GameState(
             game_id=str(uuid4()),
             owner_token=owner_token,
-            difficulty=difficulty,
+            mode=mode,
+            rules_difficulty=rules_difficulty,
             rounds=rounds,
             started_at=time.time(),
         )
@@ -168,7 +196,8 @@ class GameStore:
         if current_round is None:
             return {
                 "game_id": game.game_id,
-                "difficulty": game.difficulty,
+                "mode": game.mode,
+                "mode_label": GAME_MODE_LABELS[game.mode],
                 "status": "finished",
                 "round_number": len(game.rounds),
                 "total_score": game.total_score,
@@ -178,7 +207,8 @@ class GameStore:
         location = current_round.location
         return {
             "game_id": game.game_id,
-            "difficulty": game.difficulty,
+            "mode": game.mode,
+            "mode_label": GAME_MODE_LABELS[game.mode],
             "status": "in_progress",
             "round_id": current_round.round_id,
             "round_number": game.current_round_index + 1,

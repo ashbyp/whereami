@@ -4,11 +4,11 @@ const state = {
   user: null,
   bestTimes: {},
   roundResults: [],
-  lastCompletedDifficulty: "",
+  lastCompletedMode: "",
   gameId: null,
   roundId: null,
-  difficulty: "easy",
-  difficulties: [],
+  mode: "easy",
+  gameModes: [],
   totalScore: 0,
   timerBaseSeconds: 0,
   timerStartedAt: 0,
@@ -53,7 +53,7 @@ const elements = {
   sessionKind: document.querySelector("#session-kind"),
   avatarImage: document.querySelector("#avatar-image"),
   avatarFallback: document.querySelector("#avatar-fallback"),
-  difficultyPicker: document.querySelector("#difficulty-picker"),
+  modePicker: document.querySelector("#mode-picker"),
   toggleMapSize: document.querySelector("#toggle-map-size"),
   mapOverlay: document.querySelector("#map-overlay"),
   nextRoundInline: document.querySelector("#next-round-inline"),
@@ -64,7 +64,7 @@ const elements = {
   resultSummary: document.querySelector("#result-summary"),
   resultsModal: document.querySelector("#results-modal"),
   resultsModalSummary: document.querySelector("#results-modal-summary"),
-  resultsModalDifficulty: document.querySelector("#results-modal-difficulty"),
+  resultsModalMode: document.querySelector("#results-modal-mode"),
   resultsModalBestTimeRow: document.querySelector("#results-modal-best-time-row"),
   resultsModalBestTime: document.querySelector("#results-modal-best-time"),
   resultsModalBody: document.querySelector("#results-modal-body"),
@@ -141,6 +141,19 @@ function renderSession() {
   }
 }
 
+function hydrateModePicker() {
+  if (!elements.modePicker) {
+    return;
+  }
+  const optionsMarkup = state.gameModes
+    .map((mode) => `<option value="${mode.id}">${mode.label}</option>`)
+    .join("");
+  elements.modePicker.innerHTML = optionsMarkup;
+  if (state.gameModes.some((mode) => mode.id === state.mode)) {
+    elements.modePicker.value = state.mode;
+  }
+}
+
 function renderResultsTable() {
   elements.resultsModalBody.innerHTML = "";
   for (const round of state.roundResults) {
@@ -156,18 +169,21 @@ function renderResultsTable() {
   }
 }
 
-function formatDifficultyLabel(difficulty) {
-  if (!difficulty) {
+function formatModeLabel(modeId) {
+  const mode = state.gameModes.find((entry) => entry.id === modeId);
+  if (mode) {
+    return mode.label;
+  }
+  if (!modeId) {
     return "";
   }
-  return difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+  return modeId.charAt(0).toUpperCase() + modeId.slice(1);
 }
 
 function syncResultsMeta() {
-  elements.resultsModalDifficulty.textContent =
-    formatDifficultyLabel(state.lastCompletedDifficulty);
+  elements.resultsModalMode.textContent = formatModeLabel(state.lastCompletedMode);
 
-  const bestTime = state.bestTimes?.[state.lastCompletedDifficulty];
+  const bestTime = state.bestTimes?.[state.lastCompletedMode];
   const showBestTime =
     state.user?.kind === "user" && typeof bestTime === "number";
 
@@ -220,7 +236,7 @@ function clearSession() {
   state.user = null;
   state.bestTimes = {};
   state.roundResults = [];
-  state.lastCompletedDifficulty = "";
+  state.lastCompletedMode = "";
   state.gameId = null;
   state.roundId = null;
   window.localStorage.removeItem("whereami.sessionToken");
@@ -277,7 +293,10 @@ async function bootstrap() {
     }
 
     state.apiKey = config.google_maps_api_key;
-    state.difficulties = config.difficulties || [];
+    state.gameModes = config.game_modes || [];
+    if (state.gameModes.length > 0 && !state.gameModes.some((mode) => mode.id === state.mode)) {
+      state.mode = state.gameModes[0].id;
+    }
     await initializeMaps();
     renderSession();
     await restoreSession();
@@ -298,7 +317,7 @@ async function initializeMaps() {
   state.initializing = true;
   try {
     await loadGoogleMapsScript(state.apiKey);
-    hydrateDifficultyPicker();
+    hydrateModePicker();
     if (!state.map) {
       createMap();
     }
@@ -364,15 +383,6 @@ function resetMapViewport() {
   state.map.setZoom(2);
 }
 
-function hydrateDifficultyPicker() {
-  const chips = elements.difficultyPicker.querySelectorAll("[data-difficulty]");
-  for (const chip of chips) {
-    const difficulty = chip.dataset.difficulty;
-    chip.hidden = !state.difficulties.includes(difficulty);
-    chip.classList.toggle("active", difficulty === state.difficulty);
-  }
-}
-
 function syncMapSize() {
   if (!state.google || !state.map) {
     return;
@@ -388,8 +398,15 @@ function syncMapSize() {
 }
 
 function toggleMapSize() {
-  state.mapPinnedOpen = !state.mapPinnedOpen;
-  setMapExpanded(state.mapPinnedOpen);
+  const isExpanded = elements.mapOverlay.classList.contains("expanded");
+  if (isExpanded) {
+    state.mapPinnedOpen = false;
+    setMapExpanded(false);
+    return;
+  }
+
+  state.mapPinnedOpen = true;
+  setMapExpanded(true);
 }
 
 function setMapExpanded(expanded) {
@@ -507,7 +524,7 @@ function resetToStartView() {
 
 async function renderRound(round) {
   state.roundId = round.round_id;
-  state.difficulty = round.difficulty || state.difficulty;
+  state.mode = round.mode || state.mode;
   state.totalScore = round.total_score;
   state.startView = null;
   state.guessLatLng = null;
@@ -523,7 +540,7 @@ async function renderRound(round) {
     `Round ${round.round_number} / ${round.rounds_total}`;
   elements.scoreCounter.textContent = `Score ${round.total_score}`;
   startTimer(round.elapsed_seconds || 0);
-  hydrateDifficultyPicker();
+  hydrateModePicker();
   clearRoundMarkers();
 
   try {
@@ -559,10 +576,10 @@ async function startGame() {
   elements.statusMessage.textContent = "Creating a new game...";
   const round = await fetchJson("/api/game/new", {
     method: "POST",
-    body: JSON.stringify({ difficulty: state.difficulty }),
+    body: JSON.stringify({ mode: state.mode }),
   });
   state.roundResults = [];
-  state.lastCompletedDifficulty = "";
+  state.lastCompletedMode = "";
   state.gameId = round.game_id;
   await renderRound(round);
   elements.statusMessage.textContent = "";
@@ -621,9 +638,10 @@ async function submitGuess() {
     location: `${result.actual.label}, ${result.actual.country}`,
     distance: `${distanceKm} km`,
   });
-  elements.resultSummary.textContent =
-    `${result.actual.label}, ${result.actual.country}. ` +
-    `You were ${distanceKm} km away and scored ${result.round_score} points.`;
+  elements.resultSummary.innerHTML =
+    `<strong>${result.actual.label}, ${result.actual.country}</strong>` +
+    `You were <span class="result-metric">${distanceKm} km</span> away ` +
+    `and scored <span class="result-metric">${result.round_score} points</span>.`;
   elements.mapResult.classList.remove("hidden");
   elements.nextRoundInline.classList.remove("hidden");
   elements.nextRoundInline.textContent = result.next_round_available
@@ -634,7 +652,7 @@ async function submitGuess() {
     startTimer(result.elapsed_seconds || 0);
   } else {
     stopTimer(result.elapsed_seconds || 0);
-    state.lastCompletedDifficulty = state.difficulty;
+    state.lastCompletedMode = state.mode;
     if (result.best_times) {
       state.bestTimes = result.best_times;
     }
@@ -656,7 +674,7 @@ async function nextRound() {
     state.roundId = null;
     stopTimer(round.elapsed_seconds || 0);
     elements.nextRoundInline.classList.add("hidden");
-    state.lastCompletedDifficulty = state.lastCompletedDifficulty || state.difficulty;
+    state.lastCompletedMode = state.lastCompletedMode || state.mode;
     showResultsModal(
       `Final score: ${round.total_score}. Total time: ${formatDuration(round.elapsed_seconds || 0)} across ${round.round_number} rounds.`
     );
@@ -771,14 +789,8 @@ elements.backToStart.addEventListener("click", () => {
   resetToStartView();
 });
 
-elements.difficultyPicker.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-difficulty]");
-  if (!target) {
-    return;
-  }
-
-  state.difficulty = target.dataset.difficulty;
-  hydrateDifficultyPicker();
+elements.modePicker.addEventListener("change", (event) => {
+  state.mode = event.target.value;
 });
 
 elements.toggleMapSize.addEventListener("click", () => {
@@ -791,7 +803,7 @@ elements.mapOverlay.addEventListener("mouseenter", () => {
   }
 });
 
-elements.mapOverlay.addEventListener("mouseleave", () => {
+elements.streetViewCanvas.addEventListener("mouseenter", () => {
   if (!state.mapPinnedOpen) {
     setMapExpanded(false);
   }
@@ -816,11 +828,11 @@ elements.closeResultsModal.addEventListener("click", () => {
 });
 
 elements.clearBestTime.addEventListener("click", async () => {
-  if (!state.lastCompletedDifficulty || state.user?.kind !== "user") {
+  if (!state.lastCompletedMode || state.user?.kind !== "user") {
     return;
   }
   try {
-    const session = await fetchJson(`/api/stats/best-time/${state.lastCompletedDifficulty}`, {
+    const session = await fetchJson(`/api/stats/best-time/${state.lastCompletedMode}`, {
       method: "DELETE",
     });
     storeSession(session);

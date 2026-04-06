@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 from .auth import AuthService
 from .db import Database
-from .game import DIFFICULTY_LEVELS, GameStore
+from .game import DIFFICULTY_LEVELS, GAME_MODES, GameStore
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
@@ -40,7 +40,7 @@ class GuessRequest(BaseModel):
 
 
 class NewGameRequest(BaseModel):
-    difficulty: str = "easy"
+    mode: str = "easy"
 
 
 class AuthRequest(BaseModel):
@@ -97,6 +97,7 @@ def get_config() -> dict[str, Any]:
         "google_maps_api_key": api_key,
         "configured": bool(api_key),
         "difficulties": list(DIFFICULTY_LEVELS),
+        "game_modes": list(GAME_MODES),
     }
 
 
@@ -178,7 +179,7 @@ def new_game(
 ) -> dict[str, object]:
     session = require_session(x_session_token)
     try:
-        game = game_store.create_game(session["token"], payload.difficulty)
+        game = game_store.create_game(session["token"], payload.mode)
         return game_store.build_round_payload(game)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
@@ -217,7 +218,7 @@ def submit_guess(
             database.record_game_result(
                 user_id=user["id"] if user["kind"] == "user" else None,
                 guest_name=user["display_name"] if user["kind"] == "guest" else None,
-                difficulty=game_store.get_game(game_id, session["token"]).difficulty,
+                difficulty=game_store.get_game(game_id, session["token"]).mode,
                 total_score=result["total_score"],
                 elapsed_seconds=result["elapsed_seconds"],
             )
