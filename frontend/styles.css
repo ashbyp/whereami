@@ -1,13 +1,14 @@
 :root {
-  --bg: #f3efe4;
-  --surface: rgba(255, 250, 240, 0.82);
-  --surface-strong: #fff9ee;
+  --bg: #f1ead8;
+  --surface: rgba(255, 252, 245, 0.74);
+  --surface-strong: rgba(255, 250, 240, 0.92);
   --text: #1f2a1f;
-  --muted: #5e6a60;
+  --muted: #677166;
   --accent: #1b6b5c;
-  --accent-strong: #12483f;
-  --border: rgba(31, 42, 31, 0.1);
-  --shadow: 0 24px 80px rgba(33, 41, 28, 0.12);
+  --accent-strong: #113f38;
+  --border: rgba(31, 42, 31, 0.09);
+  --shadow: 0 26px 80px rgba(38, 45, 31, 0.14);
+  --shadow-soft: 0 14px 30px rgba(33, 41, 28, 0.08);
 }
 
 * {
@@ -19,16 +20,20 @@ body {
   min-height: 100vh;
   font-family: Georgia, "Times New Roman", serif;
   color: var(--text);
+  overflow: hidden;
   background:
-    radial-gradient(circle at top left, rgba(220, 171, 93, 0.28), transparent 25%),
-    radial-gradient(circle at bottom right, rgba(27, 107, 92, 0.22), transparent 35%),
-    linear-gradient(160deg, #efe5d0 0%, #f6f3ea 55%, #ebe6d8 100%);
+    radial-gradient(circle at top left, rgba(214, 166, 88, 0.26), transparent 24%),
+    radial-gradient(circle at 85% 20%, rgba(27, 107, 92, 0.16), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(27, 107, 92, 0.18), transparent 35%),
+    linear-gradient(160deg, #efe4c9 0%, #f7f3e8 52%, #e7dfcd 100%);
 }
 
 .app-shell {
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 24px 0 40px;
+  width: 100%;
+  height: 100vh;
+  padding: 12px 12px 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -50,7 +55,15 @@ p {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.16)),
+    rgba(255, 250, 240, 0.42);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-soft);
 }
 
 .logo {
@@ -62,18 +75,18 @@ p {
 .logo-mark {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
   color: white;
   font-weight: 700;
   font-size: 1.15rem;
   background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 100%);
-  box-shadow: 0 14px 24px rgba(18, 72, 63, 0.18);
+  box-shadow: 0 16px 28px rgba(18, 72, 63, 0.22);
 }
 
 .logo-text {
-  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-size: clamp(1.35rem, 2vw, 1.95rem);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -90,10 +103,11 @@ p {
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(17, 63, 56, 0.08);
   border-radius: 999px;
-  background: rgba(255, 250, 240, 0.65);
+  background: rgba(255, 252, 247, 0.72);
   color: var(--accent-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .score-separator {
@@ -104,38 +118,50 @@ p {
 
 .status-message {
   min-height: 1.2em;
-  margin-bottom: 16px;
+  margin: 0 8px 14px;
 }
 
 .game-layout {
   display: block;
+  flex: 1;
+  min-height: 0;
 }
 
 .card {
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 28px;
+  padding: 12px;
   background: var(--surface);
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
 
+.panorama-card {
+  width: 100%;
+  height: 100%;
+}
+
 .street-view-frame,
 .guess-map {
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
   background: rgba(12, 18, 14, 0.08);
 }
 
 .street-view-frame {
   position: relative;
-  min-height: min(78vh, 860px);
+  height: 100%;
+  min-height: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 22%),
+    rgba(12, 18, 14, 0.08);
 }
 
 .street-view-canvas,
 .guess-map {
   width: 100%;
-  min-height: min(78vh, 860px);
+  height: 100%;
+  min-height: 0;
 }
 
 .street-view-empty {
@@ -155,63 +181,102 @@ p {
 
 .map-overlay {
   position: absolute;
-  right: 18px;
-  bottom: 18px;
-  width: min(30vw, 360px);
-  min-width: 260px;
-  padding: 10px;
-  border: 1px solid rgba(255, 250, 240, 0.35);
+  right: 16px;
+  bottom: 16px;
+  width: min(22vw, 260px);
+  min-width: 220px;
+  padding: 8px;
+  border: 1px solid rgba(255, 250, 240, 0.42);
   border-radius: 20px;
-  background: rgba(255, 249, 238, 0.88);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.1)),
+    rgba(255, 249, 238, 0.78);
   backdrop-filter: blur(18px);
-  box-shadow: 0 22px 50px rgba(24, 30, 20, 0.22);
+  box-shadow: 0 18px 36px rgba(24, 30, 20, 0.24);
   z-index: 3;
-  transition: width 180ms ease, height 180ms ease, transform 180ms ease;
+  transform-origin: bottom right;
+  transition:
+    inset 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    min-width 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    padding 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-radius 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .map-overlay.expanded {
-  inset: 18px;
-  width: auto;
-  min-width: 0;
+  top: 18px;
+  right: 18px;
+  bottom: 18px;
+  left: auto;
+  width: calc(50% - 18px);
+  min-width: 420px;
+  padding: 12px;
+  border-radius: 26px;
+  background: rgba(255, 249, 238, 0.94);
+  box-shadow: 0 28px 56px rgba(24, 30, 20, 0.26);
 }
 
 .map-overlay-header {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  margin-bottom: 8px;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.map-overlay-label {
+  margin-right: auto;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .map-toggle-button {
   border: 0;
   border-radius: 999px;
-  padding: 8px 12px;
+  padding: 7px 12px;
   font: inherit;
   color: var(--accent-strong);
   background: rgba(27, 107, 92, 0.12);
   cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, opacity 160ms ease;
 }
 
 .map-toggle-button:hover {
   transform: translateY(-1px);
+  background: rgba(27, 107, 92, 0.18);
 }
 
 .map-overlay .guess-map {
-  min-height: 220px;
-  height: 220px;
-  border-radius: 14px;
+  min-height: 150px;
+  height: 150px;
+  border-radius: 16px;
+  transition:
+    min-height 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-radius 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .map-overlay.expanded .guess-map {
   min-height: calc(100% - 36px);
   height: calc(100% - 36px);
+  border-radius: 18px;
 }
 
 .primary-button,
 .secondary-button {
   border: 0;
   border-radius: 999px;
-  padding: 11px 16px;
+  padding: 11px 18px;
   font: inherit;
+  font-weight: 600;
   cursor: pointer;
   transition: transform 160ms ease, opacity 160ms ease, background 160ms ease;
 }
@@ -219,11 +284,13 @@ p {
 .primary-button {
   color: white;
   background: linear-gradient(135deg, var(--accent) 0%, #2a8a75 100%);
+  box-shadow: 0 12px 24px rgba(27, 107, 92, 0.24);
 }
 
 .secondary-button {
   color: var(--accent-strong);
-  background: rgba(27, 107, 92, 0.12);
+  background: rgba(255, 252, 247, 0.7);
+  border: 1px solid rgba(17, 63, 56, 0.08);
 }
 
 .primary-button:hover,
@@ -241,6 +308,7 @@ p {
 .result-panel {
   margin-top: 20px;
   background: var(--surface-strong);
+  border-radius: 24px;
 }
 
 #result-summary {
@@ -254,7 +322,7 @@ p {
 @media (max-width: 900px) {
   .street-view-frame,
   .street-view-canvas {
-    min-height: 70vh;
+    height: 100%;
   }
 
   .topbar {
@@ -270,11 +338,13 @@ p {
   }
 
   .map-overlay .guess-map {
-    min-height: 180px;
-    height: 180px;
+    min-height: 140px;
+    height: 140px;
   }
 
   .map-overlay.expanded {
     inset: 12px;
+    width: auto;
+    min-width: 0;
   }
 }

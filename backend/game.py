@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
+import math
 import random
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -47,13 +48,53 @@ class GameStore:
 
         sampled_locations = random.sample(self._locations, k=ROUNDS_PER_GAME)
         rounds = [
-            RoundState(round_id=str(uuid4()), location=location)
+            RoundState(
+                round_id=str(uuid4()),
+                location=self._build_round_location(location),
+            )
             for location in sampled_locations
         ]
 
         game = GameState(game_id=str(uuid4()), rounds=rounds)
         self._games[game.game_id] = game
         return game
+
+    def _build_round_location(self, seed_location: dict[str, Any]) -> dict[str, Any]:
+        radius_meters = seed_location.get("radius_meters", 900)
+        lat, lng = self._random_offset(
+            seed_location["lat"],
+            seed_location["lng"],
+            radius_meters=radius_meters,
+        )
+
+        heading = (seed_location.get("heading", random.randint(0, 359)) +
+                   random.randint(-45, 45)) % 360
+
+        return {
+            **seed_location,
+            "lat": round(lat, 6),
+            "lng": round(lng, 6),
+            "heading": heading,
+        }
+
+    def _random_offset(
+        self,
+        lat: float,
+        lng: float,
+        radius_meters: float,
+    ) -> tuple[float, float]:
+        # Uniform random point inside a circle around the seed coordinate.
+        distance = radius_meters * math.sqrt(random.random())
+        bearing = random.random() * 2 * math.pi
+
+        delta_north = math.cos(bearing) * distance
+        delta_east = math.sin(bearing) * distance
+
+        lat_offset = delta_north / 111_320
+        lng_scale = 111_320 * math.cos(math.radians(lat))
+        lng_offset = 0 if abs(lng_scale) < 1e-6 else delta_east / lng_scale
+
+        return lat + lat_offset, lng + lng_offset
 
     def get_game(self, game_id: str) -> GameState:
         return self._games[game_id]
@@ -130,4 +171,3 @@ class GameStore:
             },
             "next_round_available": game.current_round is not None,
         }
-

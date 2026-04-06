@@ -4,6 +4,7 @@
     "country": "France",
     "lat": 48.85798,
     "lng": 2.29523,
+    "radius_meters": 900,
     "heading": 95,
     "pitch": 0,
     "zoom": 1
@@ -13,6 +14,7 @@
     "country": "Italy",
     "lat": 41.88984,
     "lng": 12.49267,
+    "radius_meters": 850,
     "heading": 210,
     "pitch": 0,
     "zoom": 1
@@ -22,6 +24,7 @@
     "country": "United States",
     "lat": 40.70751,
     "lng": -74.01132,
+    "radius_meters": 1600,
     "heading": 35,
     "pitch": 0,
     "zoom": 1
@@ -31,6 +34,7 @@
     "country": "Australia",
     "lat": -33.85762,
     "lng": 151.20941,
+    "radius_meters": 1400,
     "heading": 110,
     "pitch": 0,
     "zoom": 1
@@ -40,6 +44,7 @@
     "country": "Japan",
     "lat": 35.66637,
     "lng": 139.73115,
+    "radius_meters": 1500,
     "heading": 140,
     "pitch": 0,
     "zoom": 1
@@ -49,6 +54,7 @@
     "country": "Brazil",
     "lat": -22.96243,
     "lng": -43.17365,
+    "radius_meters": 1400,
     "heading": 260,
     "pitch": 0,
     "zoom": 1
@@ -58,6 +64,7 @@
     "country": "Germany",
     "lat": 52.51682,
     "lng": 13.3789,
+    "radius_meters": 1200,
     "heading": 88,
     "pitch": 0,
     "zoom": 1
@@ -67,6 +74,7 @@
     "country": "Egypt",
     "lat": 29.97712,
     "lng": 31.13284,
+    "radius_meters": 700,
     "heading": 145,
     "pitch": 0,
     "zoom": 1
@@ -76,6 +84,7 @@
     "country": "United Kingdom",
     "lat": 51.50095,
     "lng": -0.12384,
+    "radius_meters": 950,
     "heading": 180,
     "pitch": 0,
     "zoom": 1
@@ -85,6 +94,7 @@
     "country": "India",
     "lat": 27.17341,
     "lng": 78.04155,
+    "radius_meters": 800,
     "heading": 305,
     "pitch": 0,
     "zoom": 1

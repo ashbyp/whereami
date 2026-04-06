@@ -113,11 +113,15 @@ function syncMapSize() {
   window.setTimeout(() => {
     state.google.maps.event.trigger(state.map, "resize");
   }, 0);
+
+  window.setTimeout(() => {
+    state.google.maps.event.trigger(state.map, "resize");
+  }, 240);
 }
 
 function toggleMapSize() {
   const expanded = elements.mapOverlay.classList.toggle("expanded");
-  elements.toggleMapSize.textContent = expanded ? "Minimize map" : "Expand map";
+  elements.toggleMapSize.textContent = expanded ? "Close" : "Open";
   elements.toggleMapSize.setAttribute("aria-expanded", String(expanded));
   syncMapSize();
 }
