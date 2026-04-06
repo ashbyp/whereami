@@ -2,7 +2,7 @@ const state = {
   apiKey: "",
   sessionToken: window.localStorage.getItem("whereami.sessionToken") || "",
   user: null,
-  bestTimes: {},
+  bestScores: {},
   roundResults: [],
   lastCompletedMode: "",
   gameId: null,
@@ -65,10 +65,10 @@ const elements = {
   resultsModal: document.querySelector("#results-modal"),
   resultsModalSummary: document.querySelector("#results-modal-summary"),
   resultsModalMode: document.querySelector("#results-modal-mode"),
-  resultsModalBestTimeRow: document.querySelector("#results-modal-best-time-row"),
-  resultsModalBestTime: document.querySelector("#results-modal-best-time"),
+  resultsModalBestScoreRow: document.querySelector("#results-modal-best-score-row"),
+  resultsModalBestScore: document.querySelector("#results-modal-best-score"),
   resultsModalBody: document.querySelector("#results-modal-body"),
-  clearBestTime: document.querySelector("#clear-best-time"),
+  clearBestScore: document.querySelector("#clear-best-score"),
   closeResultsModal: document.querySelector("#close-results-modal"),
   map: document.querySelector("#map"),
 };
@@ -183,16 +183,16 @@ function formatModeLabel(modeId) {
 function syncResultsMeta() {
   elements.resultsModalMode.textContent = formatModeLabel(state.lastCompletedMode);
 
-  const bestTime = state.bestTimes?.[state.lastCompletedMode];
-  const showBestTime =
-    state.user?.kind === "user" && typeof bestTime === "number";
+  const bestScore = state.bestScores?.[state.lastCompletedMode];
+  const showBestScore =
+    state.user?.kind === "user" && typeof bestScore === "number";
 
-  elements.resultsModalBestTimeRow.classList.toggle("hidden", !showBestTime);
-  elements.clearBestTime.classList.toggle("hidden", !showBestTime);
-  if (showBestTime) {
-    elements.resultsModalBestTime.textContent = formatDuration(bestTime);
+  elements.resultsModalBestScoreRow.classList.toggle("hidden", !showBestScore);
+  elements.clearBestScore.classList.toggle("hidden", !showBestScore);
+  if (showBestScore) {
+    elements.resultsModalBestScore.textContent = `${bestScore} points`;
   } else {
-    elements.resultsModalBestTime.textContent = "";
+    elements.resultsModalBestScore.textContent = "";
   }
 }
 
@@ -226,7 +226,7 @@ function rememberEmail(email) {
 function storeSession(session) {
   state.sessionToken = session.token;
   state.user = session.user;
-  state.bestTimes = session.best_times || {};
+  state.bestScores = session.best_scores || session.best_times || {};
   window.localStorage.setItem("whereami.sessionToken", state.sessionToken);
   renderSession();
 }
@@ -234,7 +234,7 @@ function storeSession(session) {
 function clearSession() {
   state.sessionToken = "";
   state.user = null;
-  state.bestTimes = {};
+  state.bestScores = {};
   state.roundResults = [];
   state.lastCompletedMode = "";
   state.gameId = null;
@@ -653,8 +653,8 @@ async function submitGuess() {
   } else {
     stopTimer(result.elapsed_seconds || 0);
     state.lastCompletedMode = state.mode;
-    if (result.best_times) {
-      state.bestTimes = result.best_times;
+    if (result.best_scores || result.best_times) {
+      state.bestScores = result.best_scores || result.best_times;
     }
     showResultsModal(
       `Final score: ${result.total_score}. Total time: ${formatDuration(result.elapsed_seconds || 0)}.`
@@ -827,12 +827,12 @@ elements.closeResultsModal.addEventListener("click", () => {
   hideResultsModal();
 });
 
-elements.clearBestTime.addEventListener("click", async () => {
+elements.clearBestScore.addEventListener("click", async () => {
   if (!state.lastCompletedMode || state.user?.kind !== "user") {
     return;
   }
   try {
-    const session = await fetchJson(`/api/stats/best-time/${state.lastCompletedMode}`, {
+    const session = await fetchJson(`/api/stats/best-score/${state.lastCompletedMode}`, {
       method: "DELETE",
     });
     storeSession(session);

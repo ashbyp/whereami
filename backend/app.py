@@ -157,19 +157,27 @@ def logout(x_session_token: str | None = Header(default=None)) -> dict[str, bool
     return {"ok": True}
 
 
-@app.delete("/api/stats/best-time/{difficulty}")
-def clear_best_time(
+@app.delete("/api/stats/best-score/{difficulty}")
+def clear_best_score(
     difficulty: str,
     x_session_token: str | None = Header(default=None),
 ) -> dict[str, Any]:
     if not x_session_token:
         raise HTTPException(status_code=401, detail="Missing session.")
     try:
-        return auth_service.clear_best_time(x_session_token, difficulty)
+        return auth_service.clear_best_score(x_session_token, difficulty)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except KeyError as exc:
         raise HTTPException(status_code=401, detail="Session expired.") from exc
+
+
+@app.delete("/api/stats/best-time/{difficulty}")
+def clear_best_time_compat(
+    difficulty: str,
+    x_session_token: str | None = Header(default=None),
+) -> dict[str, Any]:
+    return clear_best_score(difficulty, x_session_token)
 
 
 @app.post("/api/game/new")
@@ -222,9 +230,9 @@ def submit_guess(
                 total_score=result["total_score"],
                 elapsed_seconds=result["elapsed_seconds"],
             )
-            result["best_times"] = (
-                database.get_best_times(user["id"]) if user["kind"] == "user" else {}
-            )
+            best_scores = database.get_best_scores(user["id"]) if user["kind"] == "user" else {}
+            result["best_scores"] = best_scores
+            result["best_times"] = best_scores
         return result
     except KeyError as exc:
         raise HTTPException(status_code=404, detail="Game not found.") from exc

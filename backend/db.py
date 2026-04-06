@@ -233,27 +233,27 @@ class Database:
                 ),
             )
 
-    def get_best_times(self, user_id: str) -> dict[str, int]:
+    def get_best_scores(self, user_id: str) -> dict[str, int]:
         with self._connect() as connection:
             rows = connection.execute(
                 """
-                SELECT difficulty, MIN(elapsed_seconds) AS best_time
+                SELECT difficulty, MAX(total_score) AS best_score
                 FROM game_results
                 WHERE user_id = ?
                 GROUP BY difficulty
                 """,
                 (user_id,),
             ).fetchall()
-        return {row["difficulty"]: int(row["best_time"]) for row in rows}
+        return {row["difficulty"]: int(row["best_score"]) for row in rows}
 
-    def clear_best_time(self, user_id: str, difficulty: str) -> None:
+    def clear_best_score(self, user_id: str, difficulty: str) -> None:
         with self._connect() as connection:
             row = connection.execute(
                 """
                 SELECT id
                 FROM game_results
                 WHERE user_id = ? AND difficulty = ?
-                ORDER BY elapsed_seconds ASC, completed_at ASC
+                ORDER BY total_score DESC, completed_at ASC
                 LIMIT 1
                 """,
                 (user_id, difficulty),
@@ -264,3 +264,10 @@ class Database:
                 "DELETE FROM game_results WHERE id = ?",
                 (row["id"],),
             )
+
+    # Backward-compatible aliases for older callers.
+    def get_best_times(self, user_id: str) -> dict[str, int]:
+        return self.get_best_scores(user_id)
+
+    def clear_best_time(self, user_id: str, difficulty: str) -> None:
+        self.clear_best_score(user_id, difficulty)

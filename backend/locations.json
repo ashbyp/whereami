@@ -8,8 +8,16 @@
     "heading": 92,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Street near Brandenburg Gate",
@@ -20,8 +28,16 @@
     "heading": 110,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Boulevard in central Madrid",
@@ -32,8 +48,16 @@
     "heading": 58,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Street by Nyhavn",
@@ -44,8 +68,16 @@
     "heading": 145,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Road beside St Stephen's Basilica",
@@ -56,8 +88,16 @@
     "heading": 215,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Canal-side street in Amsterdam",
@@ -68,8 +108,16 @@
     "heading": 188,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Avenue by the Royal Palace",
@@ -80,8 +128,16 @@
     "heading": 135,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Street in central Lisbon",
@@ -92,8 +148,16 @@
     "heading": 72,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Road by the Danube embankment",
@@ -104,8 +168,16 @@
     "heading": 240,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Street near Old Town Square",
@@ -116,8 +188,616 @@
     "heading": 314,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["european-capitals", "world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road by St Peter's Square",
+    "country": "Italy",
+    "lat": 41.90242,
+    "lng": 12.45327,
+    "radius_meters": 950,
+    "heading": 164,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the Grand Place",
+    "country": "Belgium",
+    "lat": 50.84673,
+    "lng": 4.35247,
+    "radius_meters": 900,
+    "heading": 228,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near Trinity College",
+    "country": "Ireland",
+    "lat": 53.34387,
+    "lng": -6.25457,
+    "radius_meters": 980,
+    "heading": 118,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the Opera House",
+    "country": "Norway",
+    "lat": 59.90741,
+    "lng": 10.75306,
+    "radius_meters": 1000,
+    "heading": 204,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near Senate Square",
+    "country": "Finland",
+    "lat": 60.16988,
+    "lng": 24.95252,
+    "radius_meters": 940,
+    "heading": 82,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the Parliament building",
+    "country": "Poland",
+    "lat": 52.23255,
+    "lng": 21.01757,
+    "radius_meters": 1100,
+    "heading": 41,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Boulevard in central Athens",
+    "country": "Greece",
+    "lat": 37.97549,
+    "lng": 23.73482,
+    "radius_meters": 1100,
+    "heading": 266,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near Victory Avenue",
+    "country": "Romania",
+    "lat": 44.43857,
+    "lng": 26.09684,
+    "radius_meters": 980,
+    "heading": 54,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the National Palace of Culture",
+    "country": "Bulgaria",
+    "lat": 42.68551,
+    "lng": 23.31944,
+    "radius_meters": 1050,
+    "heading": 128,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the old town gate",
+    "country": "Slovakia",
+    "lat": 48.14591,
+    "lng": 17.10736,
+    "radius_meters": 900,
+    "heading": 322,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near Republic Square",
+    "country": "Serbia",
+    "lat": 44.81691,
+    "lng": 20.46014,
+    "radius_meters": 980,
+    "heading": 205,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near Trg Bana Jelacica",
+    "country": "Croatia",
+    "lat": 45.81303,
+    "lng": 15.97712,
+    "radius_meters": 900,
+    "heading": 178,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road in central Ljubljana",
+    "country": "Slovenia",
+    "lat": 46.05142,
+    "lng": 14.50605,
+    "radius_meters": 920,
+    "heading": 93,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the castle district",
+    "country": "Estonia",
+    "lat": 59.43694,
+    "lng": 24.74533,
+    "radius_meters": 880,
+    "heading": 250,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the cathedral square",
+    "country": "Latvia",
+    "lat": 56.94967,
+    "lng": 24.10554,
+    "radius_meters": 920,
+    "heading": 44,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Vilnius",
+    "country": "Lithuania",
+    "lat": 54.68716,
+    "lng": 25.27968,
+    "radius_meters": 940,
+    "heading": 199,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road by the cathedral in Valletta",
+    "country": "Malta",
+    "lat": 35.89972,
+    "lng": 14.51461,
+    "radius_meters": 780,
+    "heading": 136,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Nicosia",
+    "country": "Cyprus",
+    "lat": 35.17282,
+    "lng": 33.36138,
+    "radius_meters": 820,
+    "heading": 302,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the parliament area",
+    "country": "Iceland",
+    "lat": 64.1464,
+    "lng": -21.94256,
+    "radius_meters": 860,
+    "heading": 119,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Avenue in central Tirana",
+    "country": "Albania",
+    "lat": 41.32755,
+    "lng": 19.81872,
+    "radius_meters": 940,
+    "heading": 188,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near Skanderbeg Square",
+    "country": "North Macedonia",
+    "lat": 41.99737,
+    "lng": 21.42804,
+    "radius_meters": 930,
+    "heading": 67,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the old town in Podgorica",
+    "country": "Montenegro",
+    "lat": 42.44129,
+    "lng": 19.26289,
+    "radius_meters": 980,
+    "heading": 247,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road in central Sarajevo",
+    "country": "Bosnia and Herzegovina",
+    "lat": 43.85821,
+    "lng": 18.41291,
+    "radius_meters": 960,
+    "heading": 157,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near the presidential palace",
+    "country": "Belarus",
+    "lat": 53.90241,
+    "lng": 27.56185,
+    "radius_meters": 1040,
+    "heading": 91,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the opera house in Chisinau",
+    "country": "Moldova",
+    "lat": 47.02577,
+    "lng": 28.83322,
+    "radius_meters": 940,
+    "heading": 273,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near St Anne's church",
+    "country": "Luxembourg",
+    "lat": 49.61171,
+    "lng": 6.13194,
+    "radius_meters": 820,
+    "heading": 129,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the old quarter in Andorra la Vella",
+    "country": "Andorra",
+    "lat": 42.50767,
+    "lng": 1.52111,
+    "radius_meters": 760,
+    "heading": 208,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the river in Monaco",
+    "country": "Monaco",
+    "lat": 43.73854,
+    "lng": 7.42439,
+    "radius_meters": 720,
+    "heading": 84,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near the palace in San Marino",
+    "country": "San Marino",
+    "lat": 43.93671,
+    "lng": 12.44683,
+    "radius_meters": 700,
+    "heading": 312,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road in the old town of Vaduz",
+    "country": "Liechtenstein",
+    "lat": 47.14116,
+    "lng": 9.52154,
+    "radius_meters": 760,
+    "heading": 173,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "european-capitals",
+      "world-capitals"
+    ]
   },
   {
     "label": "Avenue near the Capitol building",
@@ -128,8 +808,15 @@
     "heading": 270,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
   },
   {
     "label": "Street in central Tokyo",
@@ -140,8 +827,15 @@
     "heading": 128,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
   },
   {
     "label": "Road by Parliament House",
@@ -152,8 +846,15 @@
     "heading": 45,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
   },
   {
     "label": "Street in downtown Canberra",
@@ -164,8 +865,15 @@
     "heading": 205,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
   },
   {
     "label": "Road near the Union Buildings",
@@ -176,8 +884,15 @@
     "heading": 322,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
   },
   {
     "label": "Street in Brasilia civic center",
@@ -188,11 +903,645 @@
     "heading": 182,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["world-capitals"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
   },
   {
-    "label": "Road near Empire State Plaza",
+    "label": "Road by the Zocalo",
+    "country": "Mexico",
+    "lat": 19.43261,
+    "lng": -99.1332,
+    "radius_meters": 1400,
+    "heading": 116,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near Plaza de Mayo",
+    "country": "Argentina",
+    "lat": -34.60806,
+    "lng": -58.37024,
+    "radius_meters": 1350,
+    "heading": 231,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Avenue in central Santiago",
+    "country": "Chile",
+    "lat": -33.43783,
+    "lng": -70.65045,
+    "radius_meters": 1350,
+    "heading": 147,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by Plaza Bolivar",
+    "country": "Colombia",
+    "lat": 4.59812,
+    "lng": -74.07583,
+    "radius_meters": 1400,
+    "heading": 77,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road in central Lima",
+    "country": "Peru",
+    "lat": -12.04637,
+    "lng": -77.04279,
+    "radius_meters": 1450,
+    "heading": 263,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near Plaza Murillo",
+    "country": "Bolivia",
+    "lat": -16.49567,
+    "lng": -68.13363,
+    "radius_meters": 1300,
+    "heading": 188,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road by the cathedral in Quito",
+    "country": "Ecuador",
+    "lat": -0.22016,
+    "lng": -78.51233,
+    "radius_meters": 1200,
+    "heading": 95,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near the presidential palace",
+    "country": "Paraguay",
+    "lat": -25.26374,
+    "lng": -57.57593,
+    "radius_meters": 1300,
+    "heading": 204,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near Plaza Independencia",
+    "country": "Uruguay",
+    "lat": -34.90576,
+    "lng": -56.19136,
+    "radius_meters": 1220,
+    "heading": 341,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the obelisk in Cairo",
+    "country": "Egypt",
+    "lat": 30.04452,
+    "lng": 31.23571,
+    "radius_meters": 1450,
+    "heading": 122,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the Knesset area",
+    "country": "Israel",
+    "lat": 31.77839,
+    "lng": 35.22155,
+    "radius_meters": 1180,
+    "heading": 251,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Amman",
+    "country": "Jordan",
+    "lat": 31.95216,
+    "lng": 35.93898,
+    "radius_meters": 1300,
+    "heading": 101,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near Hamra district",
+    "country": "Lebanon",
+    "lat": 33.89379,
+    "lng": 35.50178,
+    "radius_meters": 1200,
+    "heading": 214,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near the Blue Mosque",
+    "country": "Turkey",
+    "lat": 41.00537,
+    "lng": 28.9768,
+    "radius_meters": 1500,
+    "heading": 67,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road in central Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.71355,
+    "lng": 46.6753,
+    "radius_meters": 1500,
+    "heading": 198,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Abu Dhabi",
+    "country": "United Arab Emirates",
+    "lat": 24.45388,
+    "lng": 54.37734,
+    "radius_meters": 1350,
+    "heading": 293,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road by the waterfront in Doha",
+    "country": "Qatar",
+    "lat": 25.28545,
+    "lng": 51.53104,
+    "radius_meters": 1280,
+    "heading": 81,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Muscat",
+    "country": "Oman",
+    "lat": 23.58803,
+    "lng": 58.38287,
+    "radius_meters": 1320,
+    "heading": 168,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road by India Gate",
+    "country": "India",
+    "lat": 28.61291,
+    "lng": 77.22951,
+    "radius_meters": 1600,
+    "heading": 218,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Bangkok",
+    "country": "Thailand",
+    "lat": 13.75633,
+    "lng": 100.50177,
+    "radius_meters": 1500,
+    "heading": 97,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road in downtown Jakarta",
+    "country": "Indonesia",
+    "lat": -6.20876,
+    "lng": 106.8456,
+    "radius_meters": 1600,
+    "heading": 146,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near the colonial center in Manila",
+    "country": "Philippines",
+    "lat": 14.59951,
+    "lng": 120.98422,
+    "radius_meters": 1450,
+    "heading": 271,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Avenue by the National Museum",
+    "country": "South Korea",
+    "lat": 37.5665,
+    "lng": 126.978,
+    "radius_meters": 1450,
+    "heading": 63,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street by the old quarter in Hanoi",
+    "country": "Vietnam",
+    "lat": 21.02776,
+    "lng": 105.83416,
+    "radius_meters": 1450,
+    "heading": 204,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near Merdeka Square",
+    "country": "Malaysia",
+    "lat": 3.139,
+    "lng": 101.68685,
+    "radius_meters": 1500,
+    "heading": 111,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the durbar area",
+    "country": "Nepal",
+    "lat": 27.71725,
+    "lng": 85.32396,
+    "radius_meters": 1260,
+    "heading": 254,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Colombo",
+    "country": "Sri Lanka",
+    "lat": 6.92708,
+    "lng": 79.86124,
+    "radius_meters": 1300,
+    "heading": 166,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the old city in Rabat",
+    "country": "Morocco",
+    "lat": 34.02088,
+    "lng": -6.84165,
+    "radius_meters": 1240,
+    "heading": 97,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street in central Nairobi",
+    "country": "Kenya",
+    "lat": -1.28639,
+    "lng": 36.81722,
+    "radius_meters": 1450,
+    "heading": 222,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the city square in Accra",
+    "country": "Ghana",
+    "lat": 5.60372,
+    "lng": -0.18696,
+    "radius_meters": 1360,
+    "heading": 78,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Avenue in central Lagos",
+    "country": "Nigeria",
+    "lat": 6.52438,
+    "lng": 3.37921,
+    "radius_meters": 1500,
+    "heading": 183,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near the city center in Addis Ababa",
+    "country": "Ethiopia",
+    "lat": 9.032,
+    "lng": 38.748,
+    "radius_meters": 1420,
+    "heading": 301,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Street near the statehouse in Kampala",
+    "country": "Uganda",
+    "lat": 0.3476,
+    "lng": 32.58252,
+    "radius_meters": 1360,
+    "heading": 126,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "world-capitals"
+    ]
+  },
+  {
+    "label": "Road near downtown Albany",
     "country": "United States",
     "lat": 42.64931,
     "lng": -73.75751,
@@ -200,8 +1549,15 @@
     "heading": 175,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
     "label": "Street near the California State Capitol",
@@ -212,8 +1568,15 @@
     "heading": 98,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
     "label": "Street by the Texas Capitol",
@@ -224,8 +1587,15 @@
     "heading": 210,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
     "label": "Road in downtown Tallahassee",
@@ -236,8 +1606,15 @@
     "heading": 350,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
     "label": "Street by the Illinois Capitol",
@@ -248,8 +1625,15 @@
     "heading": 84,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
     "label": "Road near downtown Denver",
@@ -260,8 +1644,15 @@
     "heading": 46,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
     "label": "Street by the Arizona Capitol area",
@@ -272,8 +1663,15 @@
     "heading": 132,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
     "label": "Road near the Wisconsin Capitol",
@@ -284,11 +1682,474 @@
     "heading": 298,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["us-states"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
   },
   {
-    "label": "Street in the center of York",
+    "label": "Street in downtown Nashville",
+    "country": "United States",
+    "lat": 36.16266,
+    "lng": -86.7816,
+    "radius_meters": 1450,
+    "heading": 74,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road near central Raleigh",
+    "country": "United States",
+    "lat": 35.77959,
+    "lng": -78.63818,
+    "radius_meters": 1350,
+    "heading": 241,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street by the Ohio Statehouse",
+    "country": "United States",
+    "lat": 39.96118,
+    "lng": -82.99879,
+    "radius_meters": 1300,
+    "heading": 182,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road in central Indianapolis",
+    "country": "United States",
+    "lat": 39.7684,
+    "lng": -86.15807,
+    "radius_meters": 1320,
+    "heading": 96,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street by the capitol in Des Moines",
+    "country": "United States",
+    "lat": 41.58684,
+    "lng": -93.625,
+    "radius_meters": 1250,
+    "heading": 226,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road near central Topeka",
+    "country": "United States",
+    "lat": 39.04735,
+    "lng": -95.67516,
+    "radius_meters": 1320,
+    "heading": 335,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street near Frankfort's capitol",
+    "country": "United States",
+    "lat": 38.20091,
+    "lng": -84.87328,
+    "radius_meters": 1180,
+    "heading": 119,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road in downtown Baton Rouge",
+    "country": "United States",
+    "lat": 30.45147,
+    "lng": -91.18715,
+    "radius_meters": 1380,
+    "heading": 209,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street in central Annapolis",
+    "country": "United States",
+    "lat": 38.97845,
+    "lng": -76.49218,
+    "radius_meters": 1100,
+    "heading": 49,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road by Beacon Hill",
+    "country": "United States",
+    "lat": 42.36008,
+    "lng": -71.05888,
+    "radius_meters": 1200,
+    "heading": 301,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street in central Lansing",
+    "country": "United States",
+    "lat": 42.73254,
+    "lng": -84.55553,
+    "radius_meters": 1240,
+    "heading": 154,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road by the capitol in Saint Paul",
+    "country": "United States",
+    "lat": 44.9537,
+    "lng": -93.08996,
+    "radius_meters": 1230,
+    "heading": 83,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street in central Jackson",
+    "country": "United States",
+    "lat": 32.29876,
+    "lng": -90.18481,
+    "radius_meters": 1330,
+    "heading": 214,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road near Jefferson City center",
+    "country": "United States",
+    "lat": 38.5767,
+    "lng": -92.17352,
+    "radius_meters": 1180,
+    "heading": 346,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street by the capitol in Helena",
+    "country": "United States",
+    "lat": 46.58837,
+    "lng": -112.02451,
+    "radius_meters": 1260,
+    "heading": 108,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road in downtown Lincoln",
+    "country": "United States",
+    "lat": 40.81362,
+    "lng": -96.7026,
+    "radius_meters": 1210,
+    "heading": 268,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street near Carson City center",
+    "country": "United States",
+    "lat": 39.1638,
+    "lng": -119.7674,
+    "radius_meters": 1280,
+    "heading": 175,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road near Concord's capitol",
+    "country": "United States",
+    "lat": 43.20814,
+    "lng": -71.53757,
+    "radius_meters": 1150,
+    "heading": 62,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street in central Trenton",
+    "country": "United States",
+    "lat": 40.22058,
+    "lng": -74.75972,
+    "radius_meters": 1180,
+    "heading": 298,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road by the Roundhouse in Santa Fe",
+    "country": "United States",
+    "lat": 35.687,
+    "lng": -105.9378,
+    "radius_meters": 1260,
+    "heading": 143,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street in downtown Bismarck",
+    "country": "United States",
+    "lat": 46.80833,
+    "lng": -100.78374,
+    "radius_meters": 1240,
+    "heading": 202,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road in downtown Montgomery",
+    "country": "United States",
+    "lat": 32.36681,
+    "lng": -86.29997,
+    "radius_meters": 1320,
+    "heading": 91,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Street near Dover Green",
+    "country": "United States",
+    "lat": 39.15817,
+    "lng": -75.52437,
+    "radius_meters": 1120,
+    "heading": 187,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road by Boise center",
+    "country": "United States",
+    "lat": 43.61502,
+    "lng": -116.20231,
+    "radius_meters": 1260,
+    "heading": 266,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "us-states"
+    ]
+  },
+  {
+    "label": "Road in the center of York",
     "country": "United Kingdom",
     "lat": 53.95989,
     "lng": -1.0873,
@@ -296,8 +2157,15 @@
     "heading": 150,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["towns-in-england"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
   },
   {
     "label": "Street near Canterbury High Street",
@@ -308,8 +2176,15 @@
     "heading": 246,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["towns-in-england"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
   },
   {
     "label": "Road in central Bath",
@@ -320,8 +2195,15 @@
     "heading": 45,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["towns-in-england"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
   },
   {
     "label": "Street by the cathedral quarter in Lincoln",
@@ -332,8 +2214,15 @@
     "heading": 185,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["towns-in-england"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
   },
   {
     "label": "Street near the harbour in Whitby",
@@ -344,8 +2233,15 @@
     "heading": 305,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["towns-in-england"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
   },
   {
     "label": "Road in the center of Chester",
@@ -356,8 +2252,15 @@
     "heading": 126,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["towns-in-england"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
   },
   {
     "label": "Street in market town Shrewsbury",
@@ -368,8 +2271,414 @@
     "heading": 332,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["towns-in-england"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street in central Cambridge",
+    "country": "United Kingdom",
+    "lat": 52.20534,
+    "lng": 0.12182,
+    "radius_meters": 950,
+    "heading": 84,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road in old town Norwich",
+    "country": "United Kingdom",
+    "lat": 52.63089,
+    "lng": 1.29736,
+    "radius_meters": 920,
+    "heading": 216,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street near the lanes in Brighton",
+    "country": "United Kingdom",
+    "lat": 50.82253,
+    "lng": -0.13716,
+    "radius_meters": 960,
+    "heading": 53,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road in the center of Oxford",
+    "country": "United Kingdom",
+    "lat": 51.75202,
+    "lng": -1.25773,
+    "radius_meters": 950,
+    "heading": 144,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street in central Winchester",
+    "country": "United Kingdom",
+    "lat": 51.06128,
+    "lng": -1.31317,
+    "radius_meters": 860,
+    "heading": 317,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road by the abbey in Bury St Edmunds",
+    "country": "United Kingdom",
+    "lat": 52.24648,
+    "lng": 0.71141,
+    "radius_meters": 830,
+    "heading": 198,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street by the market in Ludlow",
+    "country": "United Kingdom",
+    "lat": 52.36764,
+    "lng": -2.71886,
+    "radius_meters": 800,
+    "heading": 63,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road in central Durham",
+    "country": "United Kingdom",
+    "lat": 54.7761,
+    "lng": -1.5733,
+    "radius_meters": 860,
+    "heading": 251,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street near the old center of Stamford",
+    "country": "United Kingdom",
+    "lat": 52.65294,
+    "lng": -0.48006,
+    "radius_meters": 800,
+    "heading": 131,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road by the market cross in Chichester",
+    "country": "United Kingdom",
+    "lat": 50.83652,
+    "lng": -0.77917,
+    "radius_meters": 860,
+    "heading": 283,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street in central Salisbury",
+    "country": "United Kingdom",
+    "lat": 51.06879,
+    "lng": -1.79447,
+    "radius_meters": 920,
+    "heading": 102,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road in old town Ely",
+    "country": "United Kingdom",
+    "lat": 52.39844,
+    "lng": 0.26236,
+    "radius_meters": 780,
+    "heading": 184,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street near the quay in Falmouth",
+    "country": "United Kingdom",
+    "lat": 50.15441,
+    "lng": -5.07124,
+    "radius_meters": 960,
+    "heading": 52,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road near the minster in Beverley",
+    "country": "United Kingdom",
+    "lat": 53.84297,
+    "lng": -0.43187,
+    "radius_meters": 820,
+    "heading": 236,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street in central Lewes",
+    "country": "United Kingdom",
+    "lat": 50.87387,
+    "lng": 0.00878,
+    "radius_meters": 820,
+    "heading": 121,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road by the river in Hereford",
+    "country": "United Kingdom",
+    "lat": 52.05674,
+    "lng": -2.71482,
+    "radius_meters": 900,
+    "heading": 312,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street in central Ripon",
+    "country": "United Kingdom",
+    "lat": 54.13579,
+    "lng": -1.52429,
+    "radius_meters": 790,
+    "heading": 91,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road by the abbey in Malmesbury",
+    "country": "United Kingdom",
+    "lat": 51.58428,
+    "lng": -2.09915,
+    "radius_meters": 760,
+    "heading": 207,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street in central Wells",
+    "country": "United Kingdom",
+    "lat": 51.20935,
+    "lng": -2.64899,
+    "radius_meters": 820,
+    "heading": 44,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Road by the market square in Helmsley",
+    "country": "United Kingdom",
+    "lat": 54.24589,
+    "lng": -1.05664,
+    "radius_meters": 760,
+    "heading": 174,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
+  },
+  {
+    "label": "Street near the harbor in Penzance",
+    "country": "United Kingdom",
+    "lat": 50.11861,
+    "lng": -5.53715,
+    "radius_meters": 940,
+    "heading": 274,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "towns-in-england"
+    ]
   },
   {
     "label": "Road through the Peak District",
@@ -380,8 +2689,15 @@
     "heading": 84,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["uk-countryside"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
   },
   {
     "label": "Lane on the North York Moors",
@@ -392,8 +2708,15 @@
     "heading": 156,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["uk-countryside"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
   },
   {
     "label": "Road in the Yorkshire Dales",
@@ -404,8 +2727,15 @@
     "heading": 24,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["uk-countryside"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
   },
   {
     "label": "Rural lane in the Cotswolds",
@@ -416,8 +2746,15 @@
     "heading": 192,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["uk-countryside"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
   },
   {
     "label": "Single-track road on Dartmoor",
@@ -428,8 +2765,15 @@
     "heading": 286,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["uk-countryside"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
   },
   {
     "label": "Road by a stone wall in the Lake District",
@@ -440,8 +2784,15 @@
     "heading": 142,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["uk-countryside"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
   },
   {
     "label": "Open moorland road in Northumberland",
@@ -452,7 +2803,413 @@
     "heading": 68,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": ["easy", "medium", "hard", "impossible"],
-    "subjects": ["uk-countryside"]
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Lane across the South Downs",
+    "country": "United Kingdom",
+    "lat": 50.90741,
+    "lng": -0.24582,
+    "radius_meters": 2200,
+    "heading": 121,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road over Exmoor",
+    "country": "United Kingdom",
+    "lat": 51.17789,
+    "lng": -3.65477,
+    "radius_meters": 2500,
+    "heading": 305,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Farm road in the Norfolk Broads",
+    "country": "United Kingdom",
+    "lat": 52.65107,
+    "lng": 1.51243,
+    "radius_meters": 2300,
+    "heading": 84,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Lane across the New Forest",
+    "country": "United Kingdom",
+    "lat": 50.88944,
+    "lng": -1.57617,
+    "radius_meters": 2200,
+    "heading": 189,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Hillside road in Snowdonia edge country",
+    "country": "United Kingdom",
+    "lat": 52.96302,
+    "lng": -3.93665,
+    "radius_meters": 2500,
+    "heading": 42,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road by the Wye Valley",
+    "country": "United Kingdom",
+    "lat": 51.82011,
+    "lng": -2.67483,
+    "radius_meters": 2300,
+    "heading": 237,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road through the Surrey Hills",
+    "country": "United Kingdom",
+    "lat": 51.19358,
+    "lng": -0.43275,
+    "radius_meters": 2150,
+    "heading": 147,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Moorland lane in the Forest of Bowland",
+    "country": "United Kingdom",
+    "lat": 53.9518,
+    "lng": -2.50088,
+    "radius_meters": 2400,
+    "heading": 316,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road over the Mendip Hills",
+    "country": "United Kingdom",
+    "lat": 51.27778,
+    "lng": -2.74043,
+    "radius_meters": 2250,
+    "heading": 73,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Remote lane in the Lincolnshire Wolds",
+    "country": "United Kingdom",
+    "lat": 53.35622,
+    "lng": -0.08691,
+    "radius_meters": 2450,
+    "heading": 206,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Coastal road in Pembrokeshire country",
+    "country": "United Kingdom",
+    "lat": 51.73114,
+    "lng": -4.94583,
+    "radius_meters": 2500,
+    "heading": 118,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Sheep-track lane in the Cheviots",
+    "country": "United Kingdom",
+    "lat": 55.4342,
+    "lng": -2.09251,
+    "radius_meters": 2700,
+    "heading": 289,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road through the Brecon Beacons foothills",
+    "country": "United Kingdom",
+    "lat": 51.88426,
+    "lng": -3.43787,
+    "radius_meters": 2550,
+    "heading": 161,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Field road in rural Suffolk",
+    "country": "United Kingdom",
+    "lat": 52.18574,
+    "lng": 1.14561,
+    "radius_meters": 2200,
+    "heading": 36,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road by the estuary in Essex marshland",
+    "country": "United Kingdom",
+    "lat": 51.70213,
+    "lng": 0.94276,
+    "radius_meters": 2350,
+    "heading": 252,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Single-track lane in Cornwall",
+    "country": "United Kingdom",
+    "lat": 50.19453,
+    "lng": -5.45181,
+    "radius_meters": 2600,
+    "heading": 118,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road across Salisbury Plain",
+    "country": "United Kingdom",
+    "lat": 51.17884,
+    "lng": -1.82619,
+    "radius_meters": 2450,
+    "heading": 207,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Lane in the Chiltern Hills",
+    "country": "United Kingdom",
+    "lat": 51.6716,
+    "lng": -0.88442,
+    "radius_meters": 2250,
+    "heading": 87,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Road across the Shropshire Hills",
+    "country": "United Kingdom",
+    "lat": 52.54083,
+    "lng": -2.83011,
+    "radius_meters": 2380,
+    "heading": 279,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Farm road in the Howardian Hills",
+    "country": "United Kingdom",
+    "lat": 54.12194,
+    "lng": -0.95388,
+    "radius_meters": 2280,
+    "heading": 146,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
+  },
+  {
+    "label": "Rolling lane in rural Kent",
+    "country": "United Kingdom",
+    "lat": 51.17803,
+    "lng": 0.75616,
+    "radius_meters": 2200,
+    "heading": 341,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": [
+      "easy",
+      "medium",
+      "hard",
+      "impossible"
+    ],
+    "subjects": [
+      "uk-countryside"
+    ]
   }
 ]

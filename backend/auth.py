@@ -20,6 +20,7 @@ class AuthService:
         return {
             "token": token,
             "user": user,
+            "best_scores": {},
             "best_times": {},
         }
 
@@ -29,7 +30,8 @@ class AuthService:
         return {
             "token": token,
             "user": user,
-            "best_times": self.database.get_best_times(user["id"]),
+            "best_scores": self.database.get_best_scores(user["id"]),
+            "best_times": self.database.get_best_scores(user["id"]),
         }
 
     def guest(self, guest_name: str = "") -> dict[str, Any]:
@@ -37,21 +39,23 @@ class AuthService:
         return {
             "token": session["token"],
             "user": session["user"],
+            "best_scores": {},
             "best_times": {},
         }
 
     def get_session(self, token: str) -> dict[str, Any]:
         session = self.database.get_session(token)
         user = session["user"]
-        best_times = (
-            self.database.get_best_times(user["id"])
+        best_scores = (
+            self.database.get_best_scores(user["id"])
             if user["kind"] == "user"
             else {}
         )
         return {
             "token": session["token"],
             "user": user,
-            "best_times": best_times,
+            "best_scores": best_scores,
+            "best_times": best_scores,
         }
 
     def update_avatar(self, token: str, avatar_url: str) -> dict[str, Any]:
@@ -63,20 +67,27 @@ class AuthService:
         return {
             "token": token,
             "user": updated_user,
-            "best_times": self.database.get_best_times(updated_user["id"]),
+            "best_scores": self.database.get_best_scores(updated_user["id"]),
+            "best_times": self.database.get_best_scores(updated_user["id"]),
         }
 
     def logout(self, token: str) -> None:
         self.database.delete_session(token)
 
-    def clear_best_time(self, token: str, difficulty: str) -> dict[str, Any]:
+    def clear_best_score(self, token: str, difficulty: str) -> dict[str, Any]:
         session = self.database.get_session(token)
         user = session["user"]
         if user["kind"] != "user":
-            raise ValueError("Guests do not have saved best times.")
-        self.database.clear_best_time(user["id"], difficulty)
+            raise ValueError("Guests do not have saved best scores.")
+        self.database.clear_best_score(user["id"], difficulty)
+        best_scores = self.database.get_best_scores(user["id"])
         return {
             "token": token,
             "user": user,
-            "best_times": self.database.get_best_times(user["id"]),
+            "best_scores": best_scores,
+            "best_times": best_scores,
         }
+
+    # Backward-compatible alias.
+    def clear_best_time(self, token: str, difficulty: str) -> dict[str, Any]:
+        return self.clear_best_score(token, difficulty)
