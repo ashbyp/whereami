@@ -4,59 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>whereami</title>
-    <link rel="stylesheet" href="/assets/styles.css" />
+    <link rel="stylesheet" href="/assets/styles.css?v=3" />
   </head>
   <body>
     <main class="app-shell">
-      <section class="hero">
-        <p class="eyebrow">Personal GeoGuessr Prototype</p>
-        <h1>Guess the place from a live Google Street View snapshot.</h1>
-        <p class="intro">
-          This starter keeps the backend simple: in-memory games, a small seed
-          dataset, and just enough API surface to add persistence later.
-        </p>
-        <div class="controls">
-          <button id="start-game" class="primary-button">Start a new game</button>
-          <p id="status-message" class="status-message">
-            Add <code>GOOGLE_MAPS_API_KEY</code> to your environment before
-            playing.
-          </p>
+      <header class="topbar">
+        <div class="logo" aria-label="Where am I">
+          <span class="logo-mark">W</span>
+          <span class="logo-text">Where am I</span>
         </div>
-      </section>
+        <div class="topbar-actions">
+          <div class="score-pill">
+            <span id="round-counter">0/5</span>
+            <span class="score-separator"></span>
+            <span id="score-counter">0</span>
+          </div>
+          <button id="start-game" class="primary-button">New game</button>
+          <button id="submit-guess" class="secondary-button" disabled>
+            Guess
+          </button>
+        </div>
+      </header>
+
+      <p id="status-message" class="status-message"></p>
 
       <section class="game-layout">
         <div class="card panorama-card">
-          <div class="card-header">
-            <span id="round-counter">Round 0 / 5</span>
-            <span id="score-counter">Score 0</span>
-          </div>
           <div id="street-view-frame" class="street-view-frame empty-state">
-            Start a game to load Street View.
+            <div id="street-view-canvas" class="street-view-canvas"></div>
+            <div id="street-view-empty" class="street-view-empty">
+              Ready when you are.
+            </div>
+            <div id="map-overlay" class="map-overlay">
+              <div class="map-overlay-header">
+                <button
+                  id="toggle-map-size"
+                  class="map-toggle-button"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Expand map
+                </button>
+              </div>
+              <div id="map" class="guess-map"></div>
+            </div>
           </div>
-        </div>
-
-        <div class="card map-card">
-          <div class="card-header">
-            <span>Place your guess</span>
-            <button id="submit-guess" class="secondary-button" disabled>
-              Submit guess
-            </button>
-          </div>
-          <div id="map" class="guess-map"></div>
-          <p id="guess-hint" class="guess-hint">
-            Click anywhere on the map to drop your marker.
-          </p>
         </div>
       </section>
 
       <section id="result-panel" class="card result-panel hidden">
-        <h2>Round result</h2>
         <p id="result-summary"></p>
         <button id="next-round" class="primary-button">Next round</button>
       </section>
     </main>
 
-    <script src="/assets/app.js" type="module"></script>
+    <script src="/assets/app.js?v=3" type="module"></script>
   </body>
 </html>
-

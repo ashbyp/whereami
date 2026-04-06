@@ -8,6 +8,8 @@ const state = {
   actualMarker: null,
   map: null,
   google: null,
+  panorama: null,
+  streetViewService: null,
 };
 
 const elements = {
@@ -17,7 +19,11 @@ const elements = {
   statusMessage: document.querySelector("#status-message"),
   roundCounter: document.querySelector("#round-counter"),
   scoreCounter: document.querySelector("#score-counter"),
+  toggleMapSize: document.querySelector("#toggle-map-size"),
+  mapOverlay: document.querySelector("#map-overlay"),
   streetViewFrame: document.querySelector("#street-view-frame"),
+  streetViewCanvas: document.querySelector("#street-view-canvas"),
+  streetViewEmpty: document.querySelector("#street-view-empty"),
   resultPanel: document.querySelector("#result-panel"),
   resultSummary: document.querySelector("#result-summary"),
   map: document.querySelector("#map"),
@@ -41,16 +47,15 @@ async function bootstrap() {
   try {
     const config = await fetchJson("/api/config");
     if (!config.configured) {
-      elements.statusMessage.textContent =
-        "Set GOOGLE_MAPS_API_KEY before starting the game.";
+      elements.statusMessage.textContent = "Missing Google Maps API key.";
       return;
     }
 
     state.apiKey = config.google_maps_api_key;
     await loadGoogleMapsScript(state.apiKey);
     createMap();
-    elements.statusMessage.textContent =
-      "Ready when you are. Start a game to get the first round.";
+    createPanorama();
+    elements.statusMessage.textContent = "";
   } catch (error) {
     elements.statusMessage.textContent = error.message;
   }
@@ -100,16 +105,41 @@ function createMap() {
   });
 }
 
-function renderRound(round) {
-  state.roundId = round.round_id;
-  state.totalScore = round.total_score;
-  state.guessLatLng = null;
-  elements.submitGuess.disabled = true;
-  elements.resultPanel.classList.add("hidden");
-  elements.roundCounter.textContent =
-    `Round ${round.round_number} / ${round.rounds_total}`;
-  elements.scoreCounter.textContent = `Score ${round.total_score}`;
+function syncMapSize() {
+  if (!state.google || !state.map) {
+    return;
+  }
 
+  window.setTimeout(() => {
+    state.google.maps.event.trigger(state.map, "resize");
+  }, 0);
+}
+
+function toggleMapSize() {
+  const expanded = elements.mapOverlay.classList.toggle("expanded");
+  elements.toggleMapSize.textContent = expanded ? "Minimize map" : "Expand map";
+  elements.toggleMapSize.setAttribute("aria-expanded", String(expanded));
+  syncMapSize();
+}
+
+function createPanorama() {
+  state.streetViewService = new state.google.maps.StreetViewService();
+  state.panorama = new state.google.maps.StreetViewPanorama(
+    elements.streetViewCanvas,
+    {
+      addressControl: false,
+      clickToGo: true,
+      fullscreenControl: false,
+      linksControl: true,
+      motionTracking: false,
+      showRoadLabels: false,
+      disableDefaultUI: false,
+      visible: true,
+    }
+  );
+}
+
+function clearRoundMarkers() {
   if (state.guessMarker) {
     state.guessMarker.setMap(null);
     state.guessMarker = null;
@@ -118,25 +148,74 @@ function renderRound(round) {
     state.actualMarker.setMap(null);
     state.actualMarker = null;
   }
+}
 
-  const { lat, lng, heading, pitch, zoom } = round.prompt;
-  const imageUrl =
-    "https://maps.googleapis.com/maps/api/streetview" +
-    `?size=1200x700&location=${lat},${lng}` +
-    `&heading=${heading}&pitch=${pitch}&fov=${Math.max(30, 90 - zoom * 10)}` +
-    `&key=${encodeURIComponent(state.apiKey)}`;
+function showStreetViewMessage(message) {
+  elements.streetViewFrame.classList.add("empty-state");
+  elements.streetViewEmpty.textContent = message;
+}
 
+function showStreetViewCanvas() {
   elements.streetViewFrame.classList.remove("empty-state");
-  elements.streetViewFrame.innerHTML =
-    `<img src="${imageUrl}" alt="Street View prompt for the current round." />`;
+  elements.streetViewEmpty.textContent = "";
+}
+
+function loadPanorama(prompt) {
+  return new Promise((resolve, reject) => {
+    state.streetViewService.getPanorama(
+      {
+        location: { lat: prompt.lat, lng: prompt.lng },
+        radius: 250,
+        source: state.google.maps.StreetViewSource.OUTDOOR,
+        preference: state.google.maps.StreetViewPreference.NEAREST,
+      },
+      (data, status) => {
+        if (status !== "OK" || !data?.location?.latLng) {
+          reject(new Error("No Street View coverage was found for this round."));
+          return;
+        }
+
+        state.panorama.setOptions({
+          pano: data.location.pano,
+          pov: {
+            heading: prompt.heading,
+            pitch: prompt.pitch,
+          },
+          linksControl: true,
+          zoom: prompt.zoom,
+        });
+        resolve();
+      }
+    );
+  });
+}
+
+async function renderRound(round) {
+  state.roundId = round.round_id;
+  state.totalScore = round.total_score;
+  state.guessLatLng = null;
+  elements.submitGuess.disabled = true;
+  elements.resultPanel.classList.add("hidden");
+  elements.roundCounter.textContent =
+    `Round ${round.round_number} / ${round.rounds_total}`;
+  elements.scoreCounter.textContent = `Score ${round.total_score}`;
+  clearRoundMarkers();
+
+  try {
+    showStreetViewCanvas();
+    await loadPanorama(round.prompt);
+  } catch (error) {
+    showStreetViewMessage(error.message);
+    throw error;
+  }
 }
 
 async function startGame() {
   elements.statusMessage.textContent = "Creating a new game...";
   const round = await fetchJson("/api/game/new", { method: "POST" });
   state.gameId = round.game_id;
-  renderRound(round);
-  elements.statusMessage.textContent = "Round ready. Make your guess.";
+  await renderRound(round);
+  elements.statusMessage.textContent = "";
 }
 
 async function submitGuess() {
@@ -179,7 +258,7 @@ async function submitGuess() {
     ? "Next round"
     : "See final score";
   elements.statusMessage.textContent = result.next_round_available
-    ? "Nice. Move on when you're ready."
+    ? ""
     : `Game complete. Final score: ${result.total_score}.`;
 }
 
@@ -199,14 +278,18 @@ async function nextRound() {
     return;
   }
 
-  renderRound(round);
-  elements.statusMessage.textContent = "Next round loaded.";
+  await renderRound(round);
+  elements.statusMessage.textContent = "";
 }
 
 elements.startGame.addEventListener("click", () => {
   startGame().catch((error) => {
     elements.statusMessage.textContent = error.message;
   });
+});
+
+elements.toggleMapSize.addEventListener("click", () => {
+  toggleMapSize();
 });
 
 elements.submitGuess.addEventListener("click", () => {
@@ -229,4 +312,3 @@ elements.nextRound.addEventListener("click", () => {
 });
 
 bootstrap();
-
