@@ -2,29 +2,37 @@ const state = {
   apiKey: "",
   gameId: null,
   roundId: null,
+  difficulty: "easy",
+  difficulties: [],
   totalScore: 0,
+  startView: null,
   guessMarker: null,
   guessLatLng: null,
   actualMarker: null,
+  resultLine: null,
   map: null,
   google: null,
   panorama: null,
   streetViewService: null,
+  ready: false,
+  mapPinnedOpen: false,
 };
 
 const elements = {
   startGame: document.querySelector("#start-game"),
+  backToStart: document.querySelector("#back-to-start"),
   submitGuess: document.querySelector("#submit-guess"),
-  nextRound: document.querySelector("#next-round"),
   statusMessage: document.querySelector("#status-message"),
   roundCounter: document.querySelector("#round-counter"),
   scoreCounter: document.querySelector("#score-counter"),
+  difficultyPicker: document.querySelector("#difficulty-picker"),
   toggleMapSize: document.querySelector("#toggle-map-size"),
   mapOverlay: document.querySelector("#map-overlay"),
+  nextRoundInline: document.querySelector("#next-round-inline"),
   streetViewFrame: document.querySelector("#street-view-frame"),
   streetViewCanvas: document.querySelector("#street-view-canvas"),
   streetViewEmpty: document.querySelector("#street-view-empty"),
-  resultPanel: document.querySelector("#result-panel"),
+  mapResult: document.querySelector("#map-result"),
   resultSummary: document.querySelector("#result-summary"),
   map: document.querySelector("#map"),
 };
@@ -52,9 +60,13 @@ async function bootstrap() {
     }
 
     state.apiKey = config.google_maps_api_key;
+    state.difficulties = config.difficulties || [];
     await loadGoogleMapsScript(state.apiKey);
+    hydrateDifficultyPicker();
     createMap();
     createPanorama();
+    state.ready = true;
+    elements.startGame.disabled = false;
     elements.statusMessage.textContent = "";
   } catch (error) {
     elements.statusMessage.textContent = error.message;
@@ -105,6 +117,15 @@ function createMap() {
   });
 }
 
+function hydrateDifficultyPicker() {
+  const chips = elements.difficultyPicker.querySelectorAll("[data-difficulty]");
+  for (const chip of chips) {
+    const difficulty = chip.dataset.difficulty;
+    chip.hidden = !state.difficulties.includes(difficulty);
+    chip.classList.toggle("active", difficulty === state.difficulty);
+  }
+}
+
 function syncMapSize() {
   if (!state.google || !state.map) {
     return;
@@ -120,9 +141,14 @@ function syncMapSize() {
 }
 
 function toggleMapSize() {
-  const expanded = elements.mapOverlay.classList.toggle("expanded");
+  state.mapPinnedOpen = !state.mapPinnedOpen;
+  setMapExpanded(state.mapPinnedOpen);
+}
+
+function setMapExpanded(expanded) {
+  elements.mapOverlay.classList.toggle("expanded", expanded);
   elements.toggleMapSize.textContent = expanded ? "Close" : "Open";
-  elements.toggleMapSize.setAttribute("aria-expanded", String(expanded));
+  elements.toggleMapSize.setAttribute("aria-expanded", String(state.mapPinnedOpen));
   syncMapSize();
 }
 
@@ -143,6 +169,20 @@ function createPanorama() {
   );
 }
 
+function applyPromptRules(prompt) {
+  if (!state.panorama) {
+    return;
+  }
+
+  state.panorama.setOptions({
+    clickToGo: prompt.movement_allowed,
+    linksControl: prompt.movement_allowed,
+    panControl: true,
+    zoomControl: prompt.zoom_allowed,
+    scrollwheel: prompt.zoom_allowed,
+  });
+}
+
 function clearRoundMarkers() {
   if (state.guessMarker) {
     state.guessMarker.setMap(null);
@@ -151,6 +191,10 @@ function clearRoundMarkers() {
   if (state.actualMarker) {
     state.actualMarker.setMap(null);
     state.actualMarker = null;
+  }
+  if (state.resultLine) {
+    state.resultLine.setMap(null);
+    state.resultLine = null;
   }
 }
 
@@ -188,26 +232,55 @@ function loadPanorama(prompt) {
           linksControl: true,
           zoom: prompt.zoom,
         });
+        state.startView = {
+          pano: data.location.pano,
+          pov: {
+            heading: prompt.heading,
+            pitch: prompt.pitch,
+          },
+          zoom: prompt.zoom,
+        };
         resolve();
       }
     );
   });
 }
 
+function resetToStartView() {
+  if (!state.panorama || !state.startView) {
+    return;
+  }
+
+  state.panorama.setOptions({
+    pano: state.startView.pano,
+    pov: state.startView.pov,
+    zoom: state.startView.zoom,
+  });
+}
+
 async function renderRound(round) {
   state.roundId = round.round_id;
+  state.difficulty = round.difficulty || state.difficulty;
   state.totalScore = round.total_score;
+  state.startView = null;
   state.guessLatLng = null;
+  state.mapPinnedOpen = false;
+  setMapExpanded(false);
+  elements.backToStart.disabled = true;
   elements.submitGuess.disabled = true;
-  elements.resultPanel.classList.add("hidden");
+  elements.mapResult.classList.add("hidden");
+  elements.nextRoundInline.classList.add("hidden");
   elements.roundCounter.textContent =
     `Round ${round.round_number} / ${round.rounds_total}`;
   elements.scoreCounter.textContent = `Score ${round.total_score}`;
+  hydrateDifficultyPicker();
   clearRoundMarkers();
 
   try {
     showStreetViewCanvas();
+    applyPromptRules(round.prompt);
     await loadPanorama(round.prompt);
+    elements.backToStart.disabled = false;
   } catch (error) {
     showStreetViewMessage(error.message);
     throw error;
@@ -215,8 +288,16 @@ async function renderRound(round) {
 }
 
 async function startGame() {
+  if (!state.ready) {
+    elements.statusMessage.textContent = "Loading Google Maps...";
+    return;
+  }
+
   elements.statusMessage.textContent = "Creating a new game...";
-  const round = await fetchJson("/api/game/new", { method: "POST" });
+  const round = await fetchJson("/api/game/new", {
+    method: "POST",
+    body: JSON.stringify({ difficulty: state.difficulty }),
+  });
   state.gameId = round.game_id;
   await renderRound(round);
   elements.statusMessage.textContent = "";
@@ -245,7 +326,23 @@ async function submitGuess() {
     map: state.map,
     position: result.actual,
     title: result.actual.label,
-    icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+    icon: {
+      path: state.google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: "#1b6b5c",
+      fillOpacity: 1,
+      strokeColor: "#ffffff",
+      strokeWeight: 2,
+    },
+  });
+
+  state.resultLine = new state.google.maps.Polyline({
+    map: state.map,
+    path: [state.guessLatLng, result.actual],
+    geodesic: true,
+    strokeColor: "#12483f",
+    strokeOpacity: 0.9,
+    strokeWeight: 3,
   });
 
   const bounds = new state.google.maps.LatLngBounds();
@@ -257,13 +354,15 @@ async function submitGuess() {
   elements.resultSummary.textContent =
     `${result.actual.label}, ${result.actual.country}. ` +
     `You were ${distanceKm} km away and scored ${result.round_score} points.`;
-  elements.resultPanel.classList.remove("hidden");
-  elements.nextRound.textContent = result.next_round_available
+  elements.mapResult.classList.remove("hidden");
+  elements.nextRoundInline.classList.remove("hidden");
+  elements.nextRoundInline.textContent = result.next_round_available
     ? "Next round"
     : "See final score";
   elements.statusMessage.textContent = result.next_round_available
     ? ""
     : `Game complete. Final score: ${result.total_score}.`;
+  setMapExpanded(true);
 }
 
 async function nextRound() {
@@ -275,8 +374,9 @@ async function nextRound() {
   if (round.status === "finished") {
     elements.resultSummary.textContent =
       `Game finished with ${round.total_score} points across ${round.round_number} rounds.`;
-    elements.resultPanel.classList.remove("hidden");
-    elements.nextRound.textContent = "Start over";
+    elements.mapResult.classList.remove("hidden");
+    elements.nextRoundInline.classList.remove("hidden");
+    elements.nextRoundInline.textContent = "Start over";
     state.gameId = null;
     state.roundId = null;
     return;
@@ -292,8 +392,34 @@ elements.startGame.addEventListener("click", () => {
   });
 });
 
+elements.backToStart.addEventListener("click", () => {
+  resetToStartView();
+});
+
+elements.difficultyPicker.addEventListener("click", (event) => {
+  const target = event.target.closest("[data-difficulty]");
+  if (!target) {
+    return;
+  }
+
+  state.difficulty = target.dataset.difficulty;
+  hydrateDifficultyPicker();
+});
+
 elements.toggleMapSize.addEventListener("click", () => {
   toggleMapSize();
+});
+
+elements.mapOverlay.addEventListener("mouseenter", () => {
+  if (!state.mapPinnedOpen) {
+    setMapExpanded(true);
+  }
+});
+
+elements.mapOverlay.addEventListener("mouseleave", () => {
+  if (!state.mapPinnedOpen) {
+    setMapExpanded(false);
+  }
 });
 
 elements.submitGuess.addEventListener("click", () => {
@@ -302,7 +428,7 @@ elements.submitGuess.addEventListener("click", () => {
   });
 });
 
-elements.nextRound.addEventListener("click", () => {
+elements.nextRoundInline.addEventListener("click", () => {
   if (state.gameId) {
     nextRound().catch((error) => {
       elements.statusMessage.textContent = error.message;

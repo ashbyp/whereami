@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from typing import Any
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -9,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-from .game import GameStore
+from .game import DIFFICULTY_LEVELS, GameStore
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
@@ -28,24 +29,32 @@ class GuessRequest(BaseModel):
     guess_lng: float
 
 
+class NewGameRequest(BaseModel):
+    difficulty: str = "easy"
+
+
 @app.get("/")
 def index() -> FileResponse:
     return FileResponse(FRONTEND_DIR / "index.html")
 
 
 @app.get("/api/config")
-def get_config() -> dict[str, str | bool]:
+def get_config() -> dict[str, Any]:
     api_key = os.getenv("GOOGLE_MAPS_API_KEY", "")
     return {
         "google_maps_api_key": api_key,
         "configured": bool(api_key),
+        "difficulties": list(DIFFICULTY_LEVELS),
     }
 
 
 @app.post("/api/game/new")
-def new_game() -> dict[str, object]:
-    game = game_store.create_game()
-    return game_store.build_round_payload(game)
+def new_game(payload: NewGameRequest) -> dict[str, object]:
+    try:
+        game = game_store.create_game(payload.difficulty)
+        return game_store.build_round_payload(game)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 @app.get("/api/game/{game_id}")

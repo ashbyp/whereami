@@ -7,7 +7,8 @@
     "radius_meters": 900,
     "heading": 95,
     "pitch": 0,
-    "zoom": 1
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
   },
   {
     "label": "Street by the Colosseum",
@@ -17,67 +18,8 @@
     "radius_meters": 850,
     "heading": 210,
     "pitch": 0,
-    "zoom": 1
-  },
-  {
-    "label": "Lower Manhattan street",
-    "country": "United States",
-    "lat": 40.70751,
-    "lng": -74.01132,
-    "radius_meters": 1600,
-    "heading": 35,
-    "pitch": 0,
-    "zoom": 1
-  },
-  {
-    "label": "Sydney city street",
-    "country": "Australia",
-    "lat": -33.85762,
-    "lng": 151.20941,
-    "radius_meters": 1400,
-    "heading": 110,
-    "pitch": 0,
-    "zoom": 1
-  },
-  {
-    "label": "Tokyo urban road",
-    "country": "Japan",
-    "lat": 35.66637,
-    "lng": 139.73115,
-    "radius_meters": 1500,
-    "heading": 140,
-    "pitch": 0,
-    "zoom": 1
-  },
-  {
-    "label": "Rio de Janeiro street",
-    "country": "Brazil",
-    "lat": -22.96243,
-    "lng": -43.17365,
-    "radius_meters": 1400,
-    "heading": 260,
-    "pitch": 0,
-    "zoom": 1
-  },
-  {
-    "label": "Berlin avenue",
-    "country": "Germany",
-    "lat": 52.51682,
-    "lng": 13.3789,
-    "radius_meters": 1200,
-    "heading": 88,
-    "pitch": 0,
-    "zoom": 1
-  },
-  {
-    "label": "Giza roadside",
-    "country": "Egypt",
-    "lat": 29.97712,
-    "lng": 31.13284,
-    "radius_meters": 700,
-    "heading": 145,
-    "pitch": 0,
-    "zoom": 1
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
   },
   {
     "label": "Westminster road",
@@ -87,7 +29,74 @@
     "radius_meters": 950,
     "heading": 180,
     "pitch": 0,
-    "zoom": 1
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Lower Manhattan street",
+    "country": "United States",
+    "lat": 40.70751,
+    "lng": -74.01132,
+    "radius_meters": 1600,
+    "heading": 35,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium", "hard"]
+  },
+  {
+    "label": "Sydney city street",
+    "country": "Australia",
+    "lat": -33.85762,
+    "lng": 151.20941,
+    "radius_meters": 1400,
+    "heading": 110,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium", "hard"]
+  },
+  {
+    "label": "Berlin avenue",
+    "country": "Germany",
+    "lat": 52.51682,
+    "lng": 13.3789,
+    "radius_meters": 1200,
+    "heading": 88,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium", "hard"]
+  },
+  {
+    "label": "Tokyo urban road",
+    "country": "Japan",
+    "lat": 35.66637,
+    "lng": 139.73115,
+    "radius_meters": 1500,
+    "heading": 140,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Rio de Janeiro street",
+    "country": "Brazil",
+    "lat": -22.96243,
+    "lng": -43.17365,
+    "radius_meters": 1400,
+    "heading": 260,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Giza roadside",
+    "country": "Egypt",
+    "lat": 29.97712,
+    "lng": 31.13284,
+    "radius_meters": 700,
+    "heading": 145,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
   },
   {
     "label": "Agra street",
@@ -97,6 +106,271 @@
     "radius_meters": 800,
     "heading": 305,
     "pitch": 0,
-    "zoom": 1
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Warehouse district road",
+    "country": "Poland",
+    "lat": 52.22995,
+    "lng": 21.01285,
+    "radius_meters": 2000,
+    "heading": 240,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Suburban service road",
+    "country": "Canada",
+    "lat": 43.65372,
+    "lng": -79.38318,
+    "radius_meters": 2300,
+    "heading": 15,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Residential hillside street",
+    "country": "Chile",
+    "lat": -33.44889,
+    "lng": -70.66927,
+    "radius_meters": 2200,
+    "heading": 120,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Dry rural roadside",
+    "country": "South Africa",
+    "lat": -25.74611,
+    "lng": 28.18806,
+    "radius_meters": 2600,
+    "heading": 300,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Forest edge road",
+    "country": "Finland",
+    "lat": 60.16986,
+    "lng": 24.93838,
+    "radius_meters": 2400,
+    "heading": 55,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Coastal connector road",
+    "country": "Portugal",
+    "lat": 38.72224,
+    "lng": -9.13934,
+    "radius_meters": 2800,
+    "heading": 210,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
+  },
+  {
+    "label": "Remote plains road",
+    "country": "Argentina",
+    "lat": -34.60373,
+    "lng": -58.38157,
+    "radius_meters": 3200,
+    "heading": 342,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
+  },
+  {
+    "label": "Generic village approach",
+    "country": "Romania",
+    "lat": 44.42677,
+    "lng": 26.10254,
+    "radius_meters": 2600,
+    "heading": 130,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
+  },
+  {
+    "label": "Seine-side avenue",
+    "country": "France",
+    "lat": 48.86061,
+    "lng": 2.33764,
+    "radius_meters": 1000,
+    "heading": 60,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Central Amsterdam canal street",
+    "country": "Netherlands",
+    "lat": 52.37124,
+    "lng": 4.90053,
+    "radius_meters": 950,
+    "heading": 150,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Barcelona boulevard",
+    "country": "Spain",
+    "lat": 41.38741,
+    "lng": 2.16859,
+    "radius_meters": 1100,
+    "heading": 210,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Prague old-town street",
+    "country": "Czech Republic",
+    "lat": 50.08745,
+    "lng": 14.42125,
+    "radius_meters": 900,
+    "heading": 320,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Singapore city road",
+    "country": "Singapore",
+    "lat": 1.28679,
+    "lng": 103.8545,
+    "radius_meters": 1200,
+    "heading": 105,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium", "hard"]
+  },
+  {
+    "label": "Mexico City avenue",
+    "country": "Mexico",
+    "lat": 19.43229,
+    "lng": -99.13329,
+    "radius_meters": 1600,
+    "heading": 45,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Budapest embankment road",
+    "country": "Hungary",
+    "lat": 47.49791,
+    "lng": 19.04024,
+    "radius_meters": 1300,
+    "heading": 250,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Istanbul neighborhood street",
+    "country": "Turkey",
+    "lat": 41.00824,
+    "lng": 28.97836,
+    "radius_meters": 1700,
+    "heading": 180,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Kuala Lumpur city road",
+    "country": "Malaysia",
+    "lat": 3.1512,
+    "lng": 101.68653,
+    "radius_meters": 1500,
+    "heading": 300,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Industrial ring road",
+    "country": "Belgium",
+    "lat": 50.85045,
+    "lng": 4.34878,
+    "radius_meters": 2200,
+    "heading": 30,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Outer suburban arterial",
+    "country": "New Zealand",
+    "lat": -36.84853,
+    "lng": 174.76349,
+    "radius_meters": 2400,
+    "heading": 95,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Semi-rural roadside",
+    "country": "Ireland",
+    "lat": 53.34978,
+    "lng": -6.2603,
+    "radius_meters": 2600,
+    "heading": 275,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Plain residential connector",
+    "country": "Croatia",
+    "lat": 45.815,
+    "lng": 15.98192,
+    "radius_meters": 2100,
+    "heading": 135,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Sparse edge-of-town road",
+    "country": "Uruguay",
+    "lat": -34.90111,
+    "lng": -56.16453,
+    "radius_meters": 3000,
+    "heading": 22,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
+  },
+  {
+    "label": "Generic plateau roadway",
+    "country": "Bulgaria",
+    "lat": 42.69751,
+    "lng": 23.32415,
+    "radius_meters": 2800,
+    "heading": 188,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
+  },
+  {
+    "label": "Open roadside with few clues",
+    "country": "Latvia",
+    "lat": 56.94965,
+    "lng": 24.10519,
+    "radius_meters": 2900,
+    "heading": 310,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
   }
 ]

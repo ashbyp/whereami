@@ -12,6 +12,34 @@ from .scoring import haversine_distance_meters, score_guess
 
 LOCATIONS_PATH = Path(__file__).with_name("locations.json")
 ROUNDS_PER_GAME = 5
+DIFFICULTY_LEVELS = ("easy", "medium", "hard", "impossible")
+
+DIFFICULTY_RULES: dict[str, dict[str, Any]] = {
+    "easy": {
+        "movement_allowed": True,
+        "zoom_allowed": True,
+        "heading_variation": 25,
+        "radius_multiplier": 0.75,
+    },
+    "medium": {
+        "movement_allowed": True,
+        "zoom_allowed": True,
+        "heading_variation": 40,
+        "radius_multiplier": 1.0,
+    },
+    "hard": {
+        "movement_allowed": False,
+        "zoom_allowed": True,
+        "heading_variation": 70,
+        "radius_multiplier": 1.25,
+    },
+    "impossible": {
+        "movement_allowed": False,
+        "zoom_allowed": False,
+        "heading_variation": 110,
+        "radius_multiplier": 1.5,
+    },
+}
 
 
 @dataclass
@@ -24,6 +52,7 @@ class RoundState:
 @dataclass
 class GameState:
     game_id: str
+    difficulty: str
     rounds: list[RoundState]
     current_round_index: int = 0
     total_score: int = 0
@@ -41,40 +70,64 @@ class GameStore:
             self._locations: list[dict[str, Any]] = json.load(handle)
         self._games: dict[str, GameState] = {}
 
-    def create_game(self) -> GameState:
-        if len(self._locations) < ROUNDS_PER_GAME:
-            msg = "locations.json must contain at least five locations."
+    def create_game(self, difficulty: str) -> GameState:
+        if difficulty not in DIFFICULTY_LEVELS:
+            msg = f"Difficulty must be one of: {', '.join(DIFFICULTY_LEVELS)}."
             raise ValueError(msg)
 
-        sampled_locations = random.sample(self._locations, k=ROUNDS_PER_GAME)
+        eligible_locations = [
+            location
+            for location in self._locations
+            if difficulty in location.get("difficulties", [])
+        ]
+        if len(eligible_locations) < ROUNDS_PER_GAME:
+            msg = f"Not enough locations configured for '{difficulty}'."
+            raise ValueError(msg)
+
+        sampled_locations = random.sample(eligible_locations, k=ROUNDS_PER_GAME)
         rounds = [
             RoundState(
                 round_id=str(uuid4()),
-                location=self._build_round_location(location),
+                location=self._build_round_location(location, difficulty),
             )
             for location in sampled_locations
         ]
 
-        game = GameState(game_id=str(uuid4()), rounds=rounds)
+        game = GameState(
+            game_id=str(uuid4()),
+            difficulty=difficulty,
+            rounds=rounds,
+        )
         self._games[game.game_id] = game
         return game
 
-    def _build_round_location(self, seed_location: dict[str, Any]) -> dict[str, Any]:
-        radius_meters = seed_location.get("radius_meters", 900)
+    def _build_round_location(
+        self,
+        seed_location: dict[str, Any],
+        difficulty: str,
+    ) -> dict[str, Any]:
+        rules = DIFFICULTY_RULES[difficulty]
+        radius_meters = seed_location.get("radius_meters", 900) * rules["radius_multiplier"]
         lat, lng = self._random_offset(
             seed_location["lat"],
             seed_location["lng"],
             radius_meters=radius_meters,
         )
 
-        heading = (seed_location.get("heading", random.randint(0, 359)) +
-                   random.randint(-45, 45)) % 360
+        heading = (
+            seed_location.get("heading", random.randint(0, 359))
+            + random.randint(-rules["heading_variation"], rules["heading_variation"])
+        ) % 360
 
         return {
             **seed_location,
             "lat": round(lat, 6),
             "lng": round(lng, 6),
             "heading": heading,
+            "difficulty": difficulty,
+            "movement_allowed": rules["movement_allowed"],
+            "zoom_allowed": rules["zoom_allowed"],
+            "zoom": 1 if rules["zoom_allowed"] else 0,
         }
 
     def _random_offset(
@@ -104,6 +157,7 @@ class GameStore:
         if current_round is None:
             return {
                 "game_id": game.game_id,
+                "difficulty": game.difficulty,
                 "status": "finished",
                 "round_number": len(game.rounds),
                 "total_score": game.total_score,
@@ -112,6 +166,7 @@ class GameStore:
         location = current_round.location
         return {
             "game_id": game.game_id,
+            "difficulty": game.difficulty,
             "status": "in_progress",
             "round_id": current_round.round_id,
             "round_number": game.current_round_index + 1,
@@ -122,6 +177,8 @@ class GameStore:
                 "heading": location.get("heading", 0),
                 "pitch": location.get("pitch", 0),
                 "zoom": location.get("zoom", 1),
+                "movement_allowed": location.get("movement_allowed", True),
+                "zoom_allowed": location.get("zoom_allowed", True),
             },
             "total_score": game.total_score,
         }

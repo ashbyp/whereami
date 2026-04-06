@@ -4,25 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>whereami</title>
-    <link rel="stylesheet" href="/assets/styles.css?v=10" />
+    <link rel="stylesheet" href="/assets/styles.css?v=16" />
   </head>
   <body>
     <main class="app-shell">
       <header class="topbar">
         <div class="logo" aria-label="Where am I">
-          <span class="logo-mark">W</span>
-          <span class="logo-text">Where am I</span>
+          <span class="logo-mark">
+            <span class="logo-pin"></span>
+            <span class="logo-dot"></span>
+          </span>
+          <span class="logo-text">Where am I?</span>
         </div>
         <div class="topbar-actions">
+          <div id="difficulty-picker" class="difficulty-picker" aria-label="Difficulty">
+            <button class="difficulty-chip active" data-difficulty="easy" type="button">
+              Easy
+            </button>
+            <button class="difficulty-chip" data-difficulty="medium" type="button">
+              Medium
+            </button>
+            <button class="difficulty-chip" data-difficulty="hard" type="button">
+              Hard
+            </button>
+            <button class="difficulty-chip" data-difficulty="impossible" type="button">
+              Impossible
+            </button>
+          </div>
           <div class="score-pill">
             <span id="round-counter">0/5</span>
             <span class="score-separator"></span>
             <span id="score-counter">0</span>
           </div>
-          <button id="start-game" class="primary-button">New game</button>
-          <button id="submit-guess" class="secondary-button" disabled>
-            Guess
+          <button id="back-to-start" class="secondary-button" disabled>
+            Back to start
           </button>
+          <button id="start-game" class="primary-button" disabled>New game</button>
         </div>
       </header>
 
@@ -38,27 +55,37 @@
             <div id="map-overlay" class="map-overlay">
               <div class="map-overlay-header">
                 <span class="map-overlay-label">Map</span>
-                <button
-                  id="toggle-map-size"
-                  class="map-toggle-button"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  Open
-                </button>
+                <div class="map-overlay-actions">
+                  <button id="submit-guess" class="secondary-button map-action" disabled>
+                    Guess
+                  </button>
+                  <button
+                    id="next-round-inline"
+                    class="primary-button map-action hidden"
+                    type="button"
+                  >
+                    Next round
+                  </button>
+                  <button
+                    id="toggle-map-size"
+                    class="map-toggle-button"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    Open
+                  </button>
+                </div>
               </div>
               <div id="map" class="guess-map"></div>
+              <div id="map-result" class="map-result hidden">
+                <p id="result-summary"></p>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section id="result-panel" class="card result-panel hidden">
-        <p id="result-summary"></p>
-        <button id="next-round" class="primary-button">Next round</button>
-      </section>
     </main>
 
-    <script src="/assets/app.js?v=10" type="module"></script>
+    <script src="/assets/app.js?v=16" type="module"></script>
   </body>
 </html>
