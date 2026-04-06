@@ -1,0 +1,93 @@
+[
+  {
+    "label": "Eiffel Tower",
+    "country": "France",
+    "lat": 48.85837,
+    "lng": 2.294481,
+    "heading": 120,
+    "pitch": 0,
+    "zoom": 1
+  },
+  {
+    "label": "Colosseum",
+    "country": "Italy",
+    "lat": 41.89021,
+    "lng": 12.492231,
+    "heading": 245,
+    "pitch": 2,
+    "zoom": 1
+  },
+  {
+    "label": "Statue of Liberty",
+    "country": "United States",
+    "lat": 40.689249,
+    "lng": -74.0445,
+    "heading": 320,
+    "pitch": 5,
+    "zoom": 1
+  },
+  {
+    "label": "Sydney Opera House",
+    "country": "Australia",
+    "lat": -33.856784,
+    "lng": 151.215297,
+    "heading": 150,
+    "pitch": 0,
+    "zoom": 1
+  },
+  {
+    "label": "Tokyo Tower",
+    "country": "Japan",
+    "lat": 35.658581,
+    "lng": 139.745433,
+    "heading": 50,
+    "pitch": 0,
+    "zoom": 1
+  },
+  {
+    "label": "Christ the Redeemer",
+    "country": "Brazil",
+    "lat": -22.951916,
+    "lng": -43.210487,
+    "heading": 170,
+    "pitch": -3,
+    "zoom": 1
+  },
+  {
+    "label": "Brandenburg Gate",
+    "country": "Germany",
+    "lat": 52.516275,
+    "lng": 13.377704,
+    "heading": 200,
+    "pitch": 0,
+    "zoom": 1
+  },
+  {
+    "label": "Pyramids of Giza",
+    "country": "Egypt",
+    "lat": 29.979235,
+    "lng": 31.134202,
+    "heading": 115,
+    "pitch": -2,
+    "zoom": 1
+  },
+  {
+    "label": "Big Ben",
+    "country": "United Kingdom",
+    "lat": 51.500729,
+    "lng": -0.124625,
+    "heading": 215,
+    "pitch": 1,
+    "zoom": 1
+  },
+  {
+    "label": "Taj Mahal",
+    "country": "India",
+    "lat": 27.175144,
+    "lng": 78.042142,
+    "heading": 80,
+    "pitch": 0,
+    "zoom": 1
+  }
+]
+

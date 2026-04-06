@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>whereami</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <p class="eyebrow">Personal GeoGuessr Prototype</p>
+        <h1>Guess the place from a live Google Street View snapshot.</h1>
+        <p class="intro">
+          This starter keeps the backend simple: in-memory games, a small seed
+          dataset, and just enough API surface to add persistence later.
+        </p>
+        <div class="controls">
+          <button id="start-game" class="primary-button">Start a new game</button>
+          <p id="status-message" class="status-message">
+            Add <code>GOOGLE_MAPS_API_KEY</code> to your environment before
+            playing.
+          </p>
+        </div>
+      </section>
+
+      <section class="game-layout">
+        <div class="card panorama-card">
+          <div class="card-header">
+            <span id="round-counter">Round 0 / 5</span>
+            <span id="score-counter">Score 0</span>
+          </div>
+          <div id="street-view-frame" class="street-view-frame empty-state">
+            Start a game to load Street View.
+          </div>
+        </div>
+
+        <div class="card map-card">
+          <div class="card-header">
+            <span>Place your guess</span>
+            <button id="submit-guess" class="secondary-button" disabled>
+              Submit guess
+            </button>
+          </div>
+          <div id="map" class="guess-map"></div>
+          <p id="guess-hint" class="guess-hint">
+            Click anywhere on the map to drop your marker.
+          </p>
+        </div>
+      </section>
+
+      <section id="result-panel" class="card result-panel hidden">
+        <h2>Round result</h2>
+        <p id="result-summary"></p>
+        <button id="next-round" class="primary-button">Next round</button>
+      </section>
+    </main>
+
+    <script src="/assets/app.js" type="module"></script>
+  </body>
+</html>
+
