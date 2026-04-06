@@ -1,27 +1,18 @@
 # whereami
 
-`whereami` is a lightweight GeoGuessr-style prototype for personal use. It uses a simple Python backend and Google Maps Platform from the outset: the frontend shows a Street View image for each round, the player clicks on a Google map to guess the location, and the backend scores the guess by distance.
+`whereami` is a personal GeoGuessr-style game built with FastAPI and plain browser JavaScript. It uses live Google Maps and Street View, supports guest play or email/password login, stores users and best times in SQLite, and keeps uploaded avatars plus app data in a dedicated `data/` folder.
 
-This version is intentionally small:
+## Features
 
-- FastAPI backend
-- Plain HTML, CSS, and JavaScript frontend
-- In-memory game sessions
-- Seeded landmark dataset in JSON
-- Google Maps JavaScript API for the guess map
-- Google Street View Static API for round images
-
-The current goal is to keep the core game loop simple first, then add persistence, user management, and saved games later.
-
-## What the project does
-
-Each game currently runs as a 5-round session:
-
-1. The backend picks random locations from `backend/locations.json`.
-2. The frontend loads a Street View image for the current location using your Google API key.
-3. The player clicks on a Google map to place a guess.
-4. The frontend sends the guess to the backend.
-5. The backend calculates distance and score, then returns the result.
+- Interactive Google Street View rounds
+- Guessing map with result markers and distance line
+- 5-round games with timer and scoring
+- Difficulty modes: `easy`, `medium`, `hard`, `impossible`
+- Guest play
+- Email/password accounts
+- Avatar upload
+- SQLite-backed users, sessions, and best times
+- Final results dialog with per-round summary
 
 ## Project structure
 
@@ -29,6 +20,8 @@ Each game currently runs as a 5-round session:
 whereami/
   backend/
     app.py
+    auth.py
+    db.py
     game.py
     locations.json
     scoring.py
@@ -36,18 +29,23 @@ whereami/
     index.html
     app.js
     styles.css
+  data/
+    whereami.db
+    uploads/
+  .dockerignore
   .env.example
   .gitignore
+  Dockerfile
   pyproject.toml
   README.md
 ```
 
 ## Requirements
 
-- Python 3.14
-- A working virtual environment in `.venv`
+- Python 3.14 for local runs
+- Docker Desktop if you want to run in Docker
 - A Google Maps Platform API key
-- Billing enabled in Google Cloud for the project that owns the API key
+- Billing enabled in the Google Cloud project that owns the key
 
 ## Google Maps setup
 
@@ -55,14 +53,13 @@ Create a Google Cloud project and enable billing, then enable these APIs:
 
 - Google Cloud Console: https://console.cloud.google.com/
 - Maps JavaScript API
-- Street View Static API
 
-Create an API key and restrict it for browser use. For local development, allow referrers such as:
+For local development and Docker on your own machine, allow browser referrers such as:
 
 - `http://localhost:*/*`
 - `http://127.0.0.1:*/*`
 
-Then create a `.env` file in the repo root:
+Create a `.env` file in the repo root:
 
 ```env
 GOOGLE_MAPS_API_KEY=your_actual_key_here
@@ -70,128 +67,139 @@ GOOGLE_MAPS_API_KEY=your_actual_key_here
 
 The app loads `.env` automatically on startup.
 
-## Setup
+## Local setup
 
-From the repository root:
+From the repo root:
 
 ```powershell
 .venv\Scripts\python.exe -m pip install -e .
 ```
 
-This installs the project dependencies from `pyproject.toml`, including:
+## Local run
 
-- `fastapi`
-- `uvicorn`
-- `python-dotenv`
-
-## Run the app
-
-Start the development server from the repo root:
+Run the app on port `8766`:
 
 ```powershell
-.venv\Scripts\uvicorn.exe backend.app:app --reload
+.venv\Scripts\uvicorn.exe backend.app:app --reload --host 0.0.0.0 --port 8766
 ```
 
 Then open:
 
 ```text
-http://127.0.0.1:8000
+http://127.0.0.1:8766
 ```
 
-## How the backend works
+## Docker build
 
-The backend lives in `backend/`:
+Build the image from the repo root:
+
+```powershell
+docker build -t whereami .
+```
+
+## Docker run
+
+Run the container on port `8766` and mount the app data folder:
+
+```powershell
+docker run --rm -p 8766:8766 --env-file .env -v "${PWD}/data:/app/data" whereami
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8766
+```
+
+Notes:
+
+- `--env-file .env` passes in your Google Maps API key
+- `-v "${PWD}/data:/app/data"` keeps the SQLite database and uploaded avatars outside the container
+- The container itself listens on port `8766`
+
+## Run from Docker Desktop
+
+If you want to run it from Docker Desktop instead of the command line:
+
+1. Open Docker Desktop.
+2. Go to `Images`.
+3. Find the `whereami` image after building it.
+4. Click `Run`.
+5. Set the container port mapping to `8766` host -> `8766` container.
+6. Add an environment variable:
+   `GOOGLE_MAPS_API_KEY=your_actual_key_here`
+7. Add a volume mount:
+   host path: your repo `data` folder (eg: C:\Users\ashbyp\dev\databases\whereami)
+   container path: `/app/data`
+8. Start the container.
+9. Open `http://127.0.0.1:8766`
+
+If Docker Desktop asks whether to use a bind mount or volume, a bind mount to your repo's `data` folder is the easiest option for this app.
+
+## Backend overview
+
+Main backend files:
 
 - `backend/app.py`
   - FastAPI app
   - serves the frontend
-  - exposes the API endpoints
+  - exposes auth, game, and stats endpoints
   - loads `.env`
+  - serves uploaded avatars from `data/uploads`
+- `backend/auth.py`
+  - login, register, guest session, avatar update logic
+- `backend/db.py`
+  - SQLite storage for users, sessions, and best times
 - `backend/game.py`
-  - in-memory game store
-  - round selection
-  - session progression
-  - guess submission
-- `backend/scoring.py`
-  - haversine distance calculation
-  - round scoring
+  - in-memory active game store
+  - difficulty handling
+  - round progression
 - `backend/locations.json`
-  - starter location dataset
+  - seed locations for round generation
 
-### API endpoints
+Key endpoints:
 
 - `GET /`
-  - serves the frontend page
 - `GET /api/config`
-  - returns whether the Google API key is configured
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/guest`
+- `GET /api/auth/me`
+- `PUT /api/auth/profile`
+- `POST /api/auth/logout`
 - `POST /api/game/new`
-  - starts a new 5-round game
 - `GET /api/game/{game_id}`
-  - returns the current round or final game state
 - `POST /api/game/{game_id}/guess`
-  - submits a guess and returns the result
+- `DELETE /api/stats/best-time/{difficulty}`
 
-## How the frontend works
+## Frontend overview
 
-The frontend lives in `frontend/`:
+Frontend files:
 
 - `frontend/index.html`
-  - main page structure
 - `frontend/app.js`
-  - game flow
-  - Google Maps loading
-  - round rendering
-  - guess submission
 - `frontend/styles.css`
-  - visual styling
 
 The frontend:
 
-- fetches config from the backend
-- loads the Google Maps JavaScript API
-- requests new rounds from the backend
-- builds Street View Static image URLs
-- submits guesses and displays scores
+- loads config from the backend
+- loads Google Maps JavaScript API in the browser
+- starts guest or authenticated sessions
+- renders Street View and the map overlay
+- submits guesses and shows results
 
-## Current limitations
+## Data and persistence
 
-This is an MVP scaffold, so a few things are intentionally simple:
+Runtime state now lives in `data/`:
 
-- no database
-- no user accounts
-- no saved games
-- no multiplayer
-- no admin tools
-- small hardcoded location dataset
-- API key currently exposed to the browser, which is expected for Maps JavaScript API usage
+- `data/whereami.db`
+  - SQLite database for users, sessions, and best times
+- `data/uploads/`
+  - uploaded avatar images
 
-## Next steps
-
-Good next improvements would be:
-
-- add SQLite persistence
-- save completed games and scores
-- add user accounts
-- expand `locations.json`
-- support categories or map packs
-- improve scoring curves
-- move from landmark-only rounds to a broader Street View location set
+That folder is the one to mount into Docker.
 
 ## Troubleshooting
-
-### Editable install fails with package discovery errors
-
-If you saw an error about:
-
-```text
-Multiple top-level packages discovered in a flat-layout
-```
-
-that was caused by setuptools trying to package both `backend/` and `frontend/`. The project is now configured to package only the Python backend, so rerun:
-
-```powershell
-.venv\Scripts\python.exe -m pip install -e .
-```
 
 ### The app says the Google API key is missing
 
@@ -199,24 +207,23 @@ Make sure:
 
 - `.env` exists in the repo root
 - it contains `GOOGLE_MAPS_API_KEY=...`
-- the server was restarted after editing `.env`
+- the app was restarted after editing `.env`
 
-### Google Maps loads but Street View does not
+### Google Maps or Street View is blank
 
 Check:
 
-- the correct APIs are enabled
 - billing is enabled
-- your API key restrictions allow local development
-- the key is valid for the APIs used by this app
+- the Maps JavaScript API is enabled
+- your API key referrer restrictions allow `localhost`
+- the key value is being passed into the app correctly
 
-## Development notes
+### Docker starts but avatars or login data disappear
 
-This project is structured so the backend can stay simple now and grow later. The intended progression is:
+Make sure you mounted the `data/` folder:
 
-1. get the game loop working
-2. refine gameplay and location data
-3. add persistence
-4. add user management
+```powershell
+-v "${PWD}/data:/app/data"
+```
 
-That keeps the early work focused on the core experience rather than infrastructure too soon.
+Without that mount, the database and uploaded files live only inside the container.

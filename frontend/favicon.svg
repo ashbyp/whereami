@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="pinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#113f38" />
+      <stop offset="100%" stop-color="#1b6b5c" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M32 6C21 6 12 15 12 26c0 13.5 15.4 28.3 18.3 31a2.4 2.4 0 0 0 3.4 0C36.6 54.3 52 39.5 52 26 52 15 43 6 32 6Z"
+    fill="url(#pinGradient)"
+  />
+  <circle cx="32" cy="26" r="10.5" fill="#fffaf0" />
+  <circle cx="32" cy="26" r="5.5" fill="#d8c6a0" />
+</svg>
