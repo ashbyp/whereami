@@ -21,6 +21,7 @@ const state = {
   panorama: null,
   streetViewService: null,
   ready: false,
+  initializing: false,
   mapPinnedOpen: false,
 };
 
@@ -58,6 +59,9 @@ const elements = {
   streetViewEmpty: document.querySelector("#street-view-empty"),
   mapResult: document.querySelector("#map-result"),
   resultSummary: document.querySelector("#result-summary"),
+  resultsModal: document.querySelector("#results-modal"),
+  resultsModalSummary: document.querySelector("#results-modal-summary"),
+  closeResultsModal: document.querySelector("#close-results-modal"),
   map: document.querySelector("#map"),
 };
 
@@ -103,17 +107,17 @@ function initialsForUser(user) {
 
 function renderSession() {
   const user = state.user;
+  elements.startGame.disabled = !state.ready;
+
   if (!user) {
     elements.authCard.classList.remove("hidden");
     elements.sessionSummary.classList.add("hidden");
-    elements.startGame.disabled = true;
     renderBestTimes();
     return;
   }
 
   elements.authCard.classList.add("hidden");
   elements.sessionSummary.classList.remove("hidden");
-  elements.startGame.disabled = !state.ready;
   elements.sessionName.textContent = user.display_name;
   elements.sessionKind.textContent =
     user.kind === "guest" ? "Guest session" : user.email;
@@ -147,6 +151,15 @@ function renderBestTimes() {
     elements.bestTimes.appendChild(chip);
   }
   elements.bestTimes.classList.remove("hidden");
+}
+
+function showResultsModal(message) {
+  elements.resultsModalSummary.textContent = message;
+  elements.resultsModal.classList.remove("hidden");
+}
+
+function hideResultsModal() {
+  elements.resultsModal.classList.add("hidden");
 }
 
 function storeSession(session) {
@@ -217,16 +230,37 @@ async function bootstrap() {
 
     state.apiKey = config.google_maps_api_key;
     state.difficulties = config.difficulties || [];
-    await loadGoogleMapsScript(state.apiKey);
-    hydrateDifficultyPicker();
-    createMap();
-    createPanorama();
-    state.ready = true;
+    await initializeMaps();
     renderSession();
     await restoreSession();
     elements.statusMessage.textContent = "";
   } catch (error) {
     elements.statusMessage.textContent = error.message;
+  }
+}
+
+async function initializeMaps() {
+  if (state.ready) {
+    return;
+  }
+  if (state.initializing) {
+    return;
+  }
+
+  state.initializing = true;
+  try {
+    await loadGoogleMapsScript(state.apiKey);
+    hydrateDifficultyPicker();
+    if (!state.map) {
+      createMap();
+    }
+    if (!state.panorama) {
+      createPanorama();
+    }
+    state.ready = true;
+    elements.startGame.disabled = false;
+  } finally {
+    state.initializing = false;
   }
 }
 
@@ -272,6 +306,14 @@ function createMap() {
     state.guessMarker.setPosition(state.guessLatLng);
     elements.submitGuess.disabled = false;
   });
+}
+
+function resetMapViewport() {
+  if (!state.map) {
+    return;
+  }
+  state.map.setCenter({ lat: 20, lng: 0 });
+  state.map.setZoom(2);
 }
 
 function hydrateDifficultyPicker() {
@@ -423,10 +465,12 @@ async function renderRound(round) {
   state.guessLatLng = null;
   state.mapPinnedOpen = false;
   setMapExpanded(false);
+  resetMapViewport();
   elements.backToStart.disabled = true;
   elements.submitGuess.disabled = true;
   elements.mapResult.classList.add("hidden");
   elements.nextRoundInline.classList.add("hidden");
+  hideResultsModal();
   elements.roundCounter.textContent =
     `Round ${round.round_number} / ${round.rounds_total}`;
   elements.scoreCounter.textContent = `Score ${round.total_score}`;
@@ -448,7 +492,20 @@ async function renderRound(round) {
 async function startGame() {
   if (!state.ready) {
     elements.statusMessage.textContent = "Loading Google Maps...";
-    return;
+    await initializeMaps();
+    if (!state.ready) {
+      return;
+    }
+  }
+
+  if (!state.user) {
+    const guestSession = await fetchJson("/api/auth/guest", {
+      method: "POST",
+      body: JSON.stringify({
+        guest_name: elements.guestName.value,
+      }),
+    });
+    storeSession(guestSession);
   }
 
   elements.statusMessage.textContent = "Creating a new game...";
@@ -516,7 +573,7 @@ async function submitGuess() {
   elements.nextRoundInline.classList.remove("hidden");
   elements.nextRoundInline.textContent = result.next_round_available
     ? "Next round"
-    : "See final score";
+    : "Final results";
   elements.statusMessage.textContent = result.next_round_available
     ? ""
     : `Game complete. Final score: ${result.total_score}.`;
@@ -528,6 +585,9 @@ async function submitGuess() {
       state.bestTimes = result.best_times;
       renderBestTimes();
     }
+    showResultsModal(
+      `Final score: ${result.total_score}. Total time: ${formatDuration(result.elapsed_seconds || 0)}.`
+    );
   }
   setMapExpanded(true);
 }
@@ -539,14 +599,13 @@ async function nextRound() {
 
   const round = await fetchJson(`/api/game/${state.gameId}`);
   if (round.status === "finished") {
-    elements.resultSummary.textContent =
-      `Game finished with ${round.total_score} points across ${round.round_number} rounds.`;
-    elements.mapResult.classList.remove("hidden");
-    elements.nextRoundInline.classList.remove("hidden");
-    elements.nextRoundInline.textContent = "Start over";
     state.gameId = null;
     state.roundId = null;
     stopTimer(round.elapsed_seconds || 0);
+    elements.nextRoundInline.classList.add("hidden");
+    showResultsModal(
+      `Final score: ${round.total_score}. Total time: ${formatDuration(round.elapsed_seconds || 0)} across ${round.round_number} rounds.`
+    );
     return;
   }
 
@@ -689,12 +748,11 @@ elements.nextRoundInline.addEventListener("click", () => {
     nextRound().catch((error) => {
       elements.statusMessage.textContent = error.message;
     });
-    return;
   }
+});
 
-  startGame().catch((error) => {
-    elements.statusMessage.textContent = error.message;
-  });
+elements.closeResultsModal.addEventListener("click", () => {
+  hideResultsModal();
 });
 
 bootstrap();

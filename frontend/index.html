@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>whereami</title>
-    <link rel="stylesheet" href="/assets/styles.css?v=19" />
+    <link rel="stylesheet" href="/assets/styles.css?v=22" />
   </head>
   <body>
     <main class="app-shell">
@@ -41,7 +41,7 @@
           <button id="back-to-start" class="secondary-button" disabled>
             Back to start
           </button>
-          <button id="start-game" class="primary-button" disabled>New game</button>
+          <button id="start-game" class="primary-button">New game</button>
           <div id="session-summary" class="session-summary hidden">
             <button id="avatar-button" class="avatar-button" type="button">
               <div class="avatar-shell">
@@ -134,8 +134,18 @@
           </div>
         </div>
       </section>
+
+      <div id="results-modal" class="results-modal hidden">
+        <div class="results-dialog">
+          <h2 class="results-title">Game complete</h2>
+          <p id="results-modal-summary" class="results-copy"></p>
+          <button id="close-results-modal" class="primary-button" type="button">
+            Close
+          </button>
+        </div>
+      </div>
     </main>
 
-    <script src="/assets/app.js?v=19" type="module"></script>
+    <script src="/assets/app.js?v=27" type="module"></script>
   </body>
 </html>

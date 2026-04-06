@@ -482,6 +482,35 @@ p {
   padding: 10px 4px 2px;
 }
 
+.results-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 19, 16, 0.34);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.results-dialog {
+  width: min(440px, 100%);
+  padding: 26px;
+  border-radius: 28px;
+  background: rgba(255, 250, 240, 0.96);
+  box-shadow: 0 30px 80px rgba(21, 28, 22, 0.28);
+}
+
+.results-title {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
+
+.results-copy {
+  margin-bottom: 18px;
+  color: var(--muted);
+}
+
 .primary-button,
 .secondary-button {
   border: 0;

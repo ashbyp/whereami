@@ -372,5 +372,170 @@
     "pitch": 0,
     "zoom": 1,
     "difficulties": ["impossible"]
+  },
+  {
+    "label": "Vienna central boulevard",
+    "country": "Austria",
+    "lat": 48.20817,
+    "lng": 16.37382,
+    "radius_meters": 1050,
+    "heading": 120,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Copenhagen canal district",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.56834,
+    "radius_meters": 1000,
+    "heading": 235,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Lisbon tram street",
+    "country": "Portugal",
+    "lat": 38.71391,
+    "lng": -9.13973,
+    "radius_meters": 1150,
+    "heading": 45,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Old San Juan street",
+    "country": "Puerto Rico",
+    "lat": 18.46554,
+    "lng": -66.10574,
+    "radius_meters": 1100,
+    "heading": 165,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["easy", "medium"]
+  },
+  {
+    "label": "Seoul downtown road",
+    "country": "South Korea",
+    "lat": 37.56645,
+    "lng": 126.97795,
+    "radius_meters": 1500,
+    "heading": 85,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Manila urban avenue",
+    "country": "Philippines",
+    "lat": 14.59951,
+    "lng": 120.98422,
+    "radius_meters": 1650,
+    "heading": 315,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Cape Town city street",
+    "country": "South Africa",
+    "lat": -33.92487,
+    "lng": 18.42406,
+    "radius_meters": 1550,
+    "heading": 140,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Athens neighborhood road",
+    "country": "Greece",
+    "lat": 37.98381,
+    "lng": 23.72754,
+    "radius_meters": 1450,
+    "heading": 260,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["medium", "hard"]
+  },
+  {
+    "label": "Anonymous suburban road",
+    "country": "Slovakia",
+    "lat": 48.1486,
+    "lng": 17.10775,
+    "radius_meters": 2300,
+    "heading": 20,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Residential edge street",
+    "country": "Estonia",
+    "lat": 59.437,
+    "lng": 24.75357,
+    "radius_meters": 2500,
+    "heading": 200,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Light industrial approach",
+    "country": "Serbia",
+    "lat": 44.78657,
+    "lng": 20.44892,
+    "radius_meters": 2400,
+    "heading": 332,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Quiet connector road",
+    "country": "Lithuania",
+    "lat": 54.68716,
+    "lng": 25.27965,
+    "radius_meters": 2700,
+    "heading": 110,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["hard", "impossible"]
+  },
+  {
+    "label": "Ambiguous ring road",
+    "country": "Slovenia",
+    "lat": 46.05695,
+    "lng": 14.50575,
+    "radius_meters": 2900,
+    "heading": 285,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
+  },
+  {
+    "label": "Low-clue roadside stretch",
+    "country": "Peru",
+    "lat": -12.04637,
+    "lng": -77.04279,
+    "radius_meters": 3300,
+    "heading": 72,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
+  },
+  {
+    "label": "Open inland roadway",
+    "country": "Botswana",
+    "lat": -24.62821,
+    "lng": 25.92315,
+    "radius_meters": 3400,
+    "heading": 245,
+    "pitch": 0,
+    "zoom": 1,
+    "difficulties": ["impossible"]
   }
 ]
