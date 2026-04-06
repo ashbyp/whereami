@@ -3,6 +3,7 @@ const state = {
   sessionToken: window.localStorage.getItem("whereami.sessionToken") || "",
   user: null,
   bestTimes: {},
+  roundResults: [],
   gameId: null,
   roundId: null,
   difficulty: "easy",
@@ -49,7 +50,6 @@ const elements = {
   sessionKind: document.querySelector("#session-kind"),
   avatarImage: document.querySelector("#avatar-image"),
   avatarFallback: document.querySelector("#avatar-fallback"),
-  bestTimes: document.querySelector("#best-times"),
   difficultyPicker: document.querySelector("#difficulty-picker"),
   toggleMapSize: document.querySelector("#toggle-map-size"),
   mapOverlay: document.querySelector("#map-overlay"),
@@ -61,6 +61,7 @@ const elements = {
   resultSummary: document.querySelector("#result-summary"),
   resultsModal: document.querySelector("#results-modal"),
   resultsModalSummary: document.querySelector("#results-modal-summary"),
+  resultsModalBody: document.querySelector("#results-modal-body"),
   closeResultsModal: document.querySelector("#close-results-modal"),
   map: document.querySelector("#map"),
 };
@@ -112,7 +113,6 @@ function renderSession() {
   if (!user) {
     elements.authCard.classList.remove("hidden");
     elements.sessionSummary.classList.add("hidden");
-    renderBestTimes();
     return;
   }
 
@@ -132,29 +132,26 @@ function renderSession() {
     elements.avatarFallback.classList.remove("hidden");
     elements.avatarFallback.textContent = initialsForUser(user);
   }
-
-  renderBestTimes();
 }
 
-function renderBestTimes() {
-  elements.bestTimes.innerHTML = "";
-  const entries = Object.entries(state.bestTimes || {});
-  if (!state.user || state.user.kind !== "user" || entries.length === 0) {
-    elements.bestTimes.classList.add("hidden");
-    return;
+function renderResultsTable() {
+  elements.resultsModalBody.innerHTML = "";
+  for (const round of state.roundResults) {
+    const row = document.createElement("tr");
+    const roundCell = document.createElement("td");
+    roundCell.textContent = String(round.roundNumber);
+    const locationCell = document.createElement("td");
+    locationCell.textContent = round.location;
+    const distanceCell = document.createElement("td");
+    distanceCell.textContent = round.distance;
+    row.append(roundCell, locationCell, distanceCell);
+    elements.resultsModalBody.appendChild(row);
   }
-
-  for (const [difficulty, seconds] of entries) {
-    const chip = document.createElement("div");
-    chip.className = "best-time-chip";
-    chip.textContent = `${difficulty}: ${formatDuration(seconds)}`;
-    elements.bestTimes.appendChild(chip);
-  }
-  elements.bestTimes.classList.remove("hidden");
 }
 
 function showResultsModal(message) {
   elements.resultsModalSummary.textContent = message;
+  renderResultsTable();
   elements.resultsModal.classList.remove("hidden");
 }
 
@@ -174,6 +171,7 @@ function clearSession() {
   state.sessionToken = "";
   state.user = null;
   state.bestTimes = {};
+  state.roundResults = [];
   state.gameId = null;
   state.roundId = null;
   window.localStorage.removeItem("whereami.sessionToken");
@@ -513,6 +511,7 @@ async function startGame() {
     method: "POST",
     body: JSON.stringify({ difficulty: state.difficulty }),
   });
+  state.roundResults = [];
   state.gameId = round.game_id;
   await renderRound(round);
   elements.statusMessage.textContent = "";
@@ -566,6 +565,11 @@ async function submitGuess() {
   state.map.fitBounds(bounds);
 
   const distanceKm = (result.distance_meters / 1000).toFixed(1);
+  state.roundResults.push({
+    roundNumber: state.roundResults.length + 1,
+    location: `${result.actual.label}, ${result.actual.country}`,
+    distance: `${distanceKm} km`,
+  });
   elements.resultSummary.textContent =
     `${result.actual.label}, ${result.actual.country}. ` +
     `You were ${distanceKm} km away and scored ${result.round_score} points.`;
@@ -574,16 +578,13 @@ async function submitGuess() {
   elements.nextRoundInline.textContent = result.next_round_available
     ? "Next round"
     : "Final results";
-  elements.statusMessage.textContent = result.next_round_available
-    ? ""
-    : `Game complete. Final score: ${result.total_score}.`;
+  elements.statusMessage.textContent = "";
   if (result.next_round_available) {
     startTimer(result.elapsed_seconds || 0);
   } else {
     stopTimer(result.elapsed_seconds || 0);
     if (result.best_times) {
       state.bestTimes = result.best_times;
-      renderBestTimes();
     }
     showResultsModal(
       `Final score: ${result.total_score}. Total time: ${formatDuration(result.elapsed_seconds || 0)}.`

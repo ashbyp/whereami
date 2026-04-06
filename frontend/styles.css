@@ -298,22 +298,6 @@ p {
   flex-wrap: wrap;
 }
 
-.best-times {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 0 8px 14px;
-}
-
-.best-time-chip {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(255, 252, 247, 0.72);
-  border: 1px solid rgba(17, 63, 56, 0.08);
-  color: var(--accent-strong);
-  font-size: 0.88rem;
-}
-
 .game-layout {
   display: block;
   flex: 1;
@@ -494,7 +478,7 @@ p {
 }
 
 .results-dialog {
-  width: min(440px, 100%);
+  width: min(760px, 100%);
   padding: 26px;
   border-radius: 28px;
   background: rgba(255, 250, 240, 0.96);
@@ -509,6 +493,46 @@ p {
 .results-copy {
   margin-bottom: 18px;
   color: var(--muted);
+}
+
+.results-table-wrap {
+  max-height: min(46vh, 420px);
+  overflow: auto;
+  margin-bottom: 18px;
+  border: 1px solid rgba(17, 63, 56, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.results-table th,
+.results-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(17, 63, 56, 0.08);
+}
+
+.results-table th {
+  position: sticky;
+  top: 0;
+  background: rgba(241, 234, 216, 0.96);
+  color: var(--accent-strong);
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.results-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.results-table td:nth-child(1),
+.results-table td:nth-child(3) {
+  white-space: nowrap;
 }
 
 .primary-button,

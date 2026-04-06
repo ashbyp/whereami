@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>whereami</title>
-    <link rel="stylesheet" href="/assets/styles.css?v=22" />
+    <link rel="stylesheet" href="/assets/styles.css?v=23" />
   </head>
   <body>
     <main class="app-shell">
@@ -93,8 +93,6 @@
         </div>
       </section>
 
-      <section id="best-times" class="best-times hidden"></section>
-
       <section class="game-layout">
         <div class="card panorama-card">
           <div id="street-view-frame" class="street-view-frame empty-state">
@@ -139,6 +137,18 @@
         <div class="results-dialog">
           <h2 class="results-title">Game complete</h2>
           <p id="results-modal-summary" class="results-copy"></p>
+          <div class="results-table-wrap">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th scope="col">Round</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Distance</th>
+                </tr>
+              </thead>
+              <tbody id="results-modal-body"></tbody>
+            </table>
+          </div>
           <button id="close-results-modal" class="primary-button" type="button">
             Close
           </button>
@@ -146,6 +156,6 @@
       </div>
     </main>
 
-    <script src="/assets/app.js?v=27" type="module"></script>
+    <script src="/assets/app.js?v=28" type="module"></script>
   </body>
 </html>
