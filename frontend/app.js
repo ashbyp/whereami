@@ -1,10 +1,16 @@
 const state = {
   apiKey: "",
+  sessionToken: window.localStorage.getItem("whereami.sessionToken") || "",
+  user: null,
+  bestTimes: {},
   gameId: null,
   roundId: null,
   difficulty: "easy",
   difficulties: [],
   totalScore: 0,
+  timerBaseSeconds: 0,
+  timerStartedAt: 0,
+  timerHandle: null,
   startView: null,
   guessMarker: null,
   guessLatLng: null,
@@ -20,11 +26,29 @@ const state = {
 
 const elements = {
   startGame: document.querySelector("#start-game"),
+  registerButton: document.querySelector("#register-button"),
+  loginButton: document.querySelector("#login-button"),
+  guestButton: document.querySelector("#guest-button"),
+  logoutButton: document.querySelector("#logout-button"),
+  avatarButton: document.querySelector("#avatar-button"),
   backToStart: document.querySelector("#back-to-start"),
   submitGuess: document.querySelector("#submit-guess"),
   statusMessage: document.querySelector("#status-message"),
   roundCounter: document.querySelector("#round-counter"),
   scoreCounter: document.querySelector("#score-counter"),
+  timerCounter: document.querySelector("#timer-counter"),
+  authCard: document.querySelector("#auth-card"),
+  authEmail: document.querySelector("#auth-email"),
+  authPassword: document.querySelector("#auth-password"),
+  authAvatar: document.querySelector("#auth-avatar"),
+  profileAvatarInput: document.querySelector("#profile-avatar-input"),
+  guestName: document.querySelector("#guest-name"),
+  sessionSummary: document.querySelector("#session-summary"),
+  sessionName: document.querySelector("#session-name"),
+  sessionKind: document.querySelector("#session-kind"),
+  avatarImage: document.querySelector("#avatar-image"),
+  avatarFallback: document.querySelector("#avatar-fallback"),
+  bestTimes: document.querySelector("#best-times"),
   difficultyPicker: document.querySelector("#difficulty-picker"),
   toggleMapSize: document.querySelector("#toggle-map-size"),
   mapOverlay: document.querySelector("#map-overlay"),
@@ -38,8 +62,16 @@ const elements = {
 };
 
 async function fetchJson(url, options = {}) {
+  const isFormData = options.body instanceof FormData;
+  const headers = {
+    ...(isFormData ? {} : { "Content-Type": "application/json" }),
+    ...(options.headers || {}),
+  };
+  if (state.sessionToken) {
+    headers["X-Session-Token"] = state.sessionToken;
+  }
   const response = await fetch(url, {
-    headers: { "Content-Type": "application/json" },
+    headers,
     ...options,
   });
 
@@ -49,6 +81,130 @@ async function fetchJson(url, options = {}) {
   }
 
   return response.json();
+}
+
+function formatDuration(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+
+function initialsForUser(user) {
+  if (!user?.display_name) {
+    return "?";
+  }
+  return user.display_name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((chunk) => chunk[0]?.toUpperCase() || "")
+    .join("");
+}
+
+function renderSession() {
+  const user = state.user;
+  if (!user) {
+    elements.authCard.classList.remove("hidden");
+    elements.sessionSummary.classList.add("hidden");
+    elements.startGame.disabled = true;
+    renderBestTimes();
+    return;
+  }
+
+  elements.authCard.classList.add("hidden");
+  elements.sessionSummary.classList.remove("hidden");
+  elements.startGame.disabled = !state.ready;
+  elements.sessionName.textContent = user.display_name;
+  elements.sessionKind.textContent =
+    user.kind === "guest" ? "Guest session" : user.email;
+  elements.avatarButton.disabled = user.kind !== "user";
+
+  if (user.avatar_url) {
+    elements.avatarImage.src = user.avatar_url;
+    elements.avatarImage.classList.remove("hidden");
+    elements.avatarFallback.classList.add("hidden");
+  } else {
+    elements.avatarImage.classList.add("hidden");
+    elements.avatarFallback.classList.remove("hidden");
+    elements.avatarFallback.textContent = initialsForUser(user);
+  }
+
+  renderBestTimes();
+}
+
+function renderBestTimes() {
+  elements.bestTimes.innerHTML = "";
+  const entries = Object.entries(state.bestTimes || {});
+  if (!state.user || state.user.kind !== "user" || entries.length === 0) {
+    elements.bestTimes.classList.add("hidden");
+    return;
+  }
+
+  for (const [difficulty, seconds] of entries) {
+    const chip = document.createElement("div");
+    chip.className = "best-time-chip";
+    chip.textContent = `${difficulty}: ${formatDuration(seconds)}`;
+    elements.bestTimes.appendChild(chip);
+  }
+  elements.bestTimes.classList.remove("hidden");
+}
+
+function storeSession(session) {
+  state.sessionToken = session.token;
+  state.user = session.user;
+  state.bestTimes = session.best_times || {};
+  window.localStorage.setItem("whereami.sessionToken", state.sessionToken);
+  renderSession();
+}
+
+function clearSession() {
+  state.sessionToken = "";
+  state.user = null;
+  state.bestTimes = {};
+  state.gameId = null;
+  state.roundId = null;
+  window.localStorage.removeItem("whereami.sessionToken");
+  stopTimer();
+  elements.roundCounter.textContent = "0/5";
+  elements.scoreCounter.textContent = "0";
+  elements.timerCounter.textContent = "00:00";
+  renderSession();
+}
+
+function startTimer(baseSeconds = 0) {
+  stopTimer();
+  state.timerBaseSeconds = baseSeconds;
+  state.timerStartedAt = Date.now();
+  const tick = () => {
+    const elapsed = state.timerBaseSeconds + Math.floor((Date.now() - state.timerStartedAt) / 1000);
+    elements.timerCounter.textContent = formatDuration(elapsed);
+  };
+  tick();
+  state.timerHandle = window.setInterval(tick, 1000);
+}
+
+function stopTimer(finalSeconds = null) {
+  if (state.timerHandle) {
+    window.clearInterval(state.timerHandle);
+    state.timerHandle = null;
+  }
+  if (typeof finalSeconds === "number") {
+    elements.timerCounter.textContent = formatDuration(finalSeconds);
+  }
+}
+
+async function restoreSession() {
+  if (!state.sessionToken) {
+    renderSession();
+    return;
+  }
+
+  try {
+    const session = await fetchJson("/api/auth/me");
+    storeSession(session);
+  } catch {
+    clearSession();
+  }
 }
 
 async function bootstrap() {
@@ -66,7 +222,8 @@ async function bootstrap() {
     createMap();
     createPanorama();
     state.ready = true;
-    elements.startGame.disabled = false;
+    renderSession();
+    await restoreSession();
     elements.statusMessage.textContent = "";
   } catch (error) {
     elements.statusMessage.textContent = error.message;
@@ -273,6 +430,7 @@ async function renderRound(round) {
   elements.roundCounter.textContent =
     `Round ${round.round_number} / ${round.rounds_total}`;
   elements.scoreCounter.textContent = `Score ${round.total_score}`;
+  startTimer(round.elapsed_seconds || 0);
   hydrateDifficultyPicker();
   clearRoundMarkers();
 
@@ -362,6 +520,15 @@ async function submitGuess() {
   elements.statusMessage.textContent = result.next_round_available
     ? ""
     : `Game complete. Final score: ${result.total_score}.`;
+  if (result.next_round_available) {
+    startTimer(result.elapsed_seconds || 0);
+  } else {
+    stopTimer(result.elapsed_seconds || 0);
+    if (result.best_times) {
+      state.bestTimes = result.best_times;
+      renderBestTimes();
+    }
+  }
   setMapExpanded(true);
 }
 
@@ -379,6 +546,7 @@ async function nextRound() {
     elements.nextRoundInline.textContent = "Start over";
     state.gameId = null;
     state.roundId = null;
+    stopTimer(round.elapsed_seconds || 0);
     return;
   }
 
@@ -390,6 +558,94 @@ elements.startGame.addEventListener("click", () => {
   startGame().catch((error) => {
     elements.statusMessage.textContent = error.message;
   });
+});
+
+elements.registerButton.addEventListener("click", async () => {
+  try {
+    const formData = new FormData();
+    formData.set("email", elements.authEmail.value);
+    formData.set("password", elements.authPassword.value);
+    const avatarFile = elements.authAvatar.files?.[0];
+    if (avatarFile) {
+      formData.set("avatar", avatarFile);
+    }
+    const session = await fetchJson("/api/auth/register", {
+      method: "POST",
+      body: formData,
+    });
+    storeSession(session);
+    elements.statusMessage.textContent = "";
+  } catch (error) {
+    elements.statusMessage.textContent = error.message;
+  }
+});
+
+elements.loginButton.addEventListener("click", async () => {
+  try {
+    const session = await fetchJson("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: elements.authEmail.value,
+        password: elements.authPassword.value,
+      }),
+    });
+    storeSession(session);
+    elements.statusMessage.textContent = "";
+  } catch (error) {
+    elements.statusMessage.textContent = error.message;
+  }
+});
+
+elements.guestButton.addEventListener("click", async () => {
+  try {
+    const session = await fetchJson("/api/auth/guest", {
+      method: "POST",
+      body: JSON.stringify({
+        guest_name: elements.guestName.value,
+      }),
+    });
+    storeSession(session);
+    elements.statusMessage.textContent = "";
+  } catch (error) {
+    elements.statusMessage.textContent = error.message;
+  }
+});
+
+elements.logoutButton.addEventListener("click", async () => {
+  try {
+    await fetchJson("/api/auth/logout", { method: "POST" });
+  } catch {
+    // no-op
+  }
+  clearSession();
+});
+
+elements.avatarButton.addEventListener("click", () => {
+  if (!state.user || state.user.kind !== "user") {
+    return;
+  }
+  elements.profileAvatarInput.click();
+});
+
+elements.profileAvatarInput.addEventListener("change", async () => {
+  const avatarFile = elements.profileAvatarInput.files?.[0];
+  if (!avatarFile) {
+    return;
+  }
+  try {
+    const formData = new FormData();
+    formData.set("avatar", avatarFile);
+    const session = await fetchJson("/api/auth/profile", {
+      method: "PUT",
+      body: formData,
+    });
+    storeSession(session);
+    elements.statusMessage.textContent = "";
+  } catch (error) {
+    elements.statusMessage.textContent = error.message;
+  } finally {
+    elements.profileAvatarInput.value = "";
+  }
 });
 
 elements.backToStart.addEventListener("click", () => {

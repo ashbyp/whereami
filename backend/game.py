@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import math
 import random
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -52,8 +53,10 @@ class RoundState:
 @dataclass
 class GameState:
     game_id: str
+    owner_token: str
     difficulty: str
     rounds: list[RoundState]
+    started_at: float
     current_round_index: int = 0
     total_score: int = 0
 
@@ -70,7 +73,7 @@ class GameStore:
             self._locations: list[dict[str, Any]] = json.load(handle)
         self._games: dict[str, GameState] = {}
 
-    def create_game(self, difficulty: str) -> GameState:
+    def create_game(self, owner_token: str, difficulty: str) -> GameState:
         if difficulty not in DIFFICULTY_LEVELS:
             msg = f"Difficulty must be one of: {', '.join(DIFFICULTY_LEVELS)}."
             raise ValueError(msg)
@@ -95,8 +98,10 @@ class GameStore:
 
         game = GameState(
             game_id=str(uuid4()),
+            owner_token=owner_token,
             difficulty=difficulty,
             rounds=rounds,
+            started_at=time.time(),
         )
         self._games[game.game_id] = game
         return game
@@ -149,8 +154,14 @@ class GameStore:
 
         return lat + lat_offset, lng + lng_offset
 
-    def get_game(self, game_id: str) -> GameState:
-        return self._games[game_id]
+    def get_game(self, game_id: str, owner_token: str) -> GameState:
+        game = self._games[game_id]
+        if game.owner_token != owner_token:
+            raise KeyError("Game not found.")
+        return game
+
+    def elapsed_seconds(self, game: GameState) -> int:
+        return max(0, int(time.time() - game.started_at))
 
     def build_round_payload(self, game: GameState) -> dict[str, Any]:
         current_round = game.current_round
@@ -161,6 +172,7 @@ class GameStore:
                 "status": "finished",
                 "round_number": len(game.rounds),
                 "total_score": game.total_score,
+                "elapsed_seconds": self.elapsed_seconds(game),
             }
 
         location = current_round.location
@@ -171,6 +183,7 @@ class GameStore:
             "round_id": current_round.round_id,
             "round_number": game.current_round_index + 1,
             "rounds_total": len(game.rounds),
+            "elapsed_seconds": self.elapsed_seconds(game),
             "prompt": {
                 "lat": location["lat"],
                 "lng": location["lng"],
@@ -186,11 +199,12 @@ class GameStore:
     def submit_guess(
         self,
         game_id: str,
+        owner_token: str,
         round_id: str,
         guess_lat: float,
         guess_lng: float,
     ) -> dict[str, Any]:
-        game = self.get_game(game_id)
+        game = self.get_game(game_id, owner_token)
         current_round = game.current_round
         if current_round is None:
             msg = "Game is already finished."
@@ -220,6 +234,7 @@ class GameStore:
             "distance_meters": round(distance_meters, 2),
             "round_score": round_score,
             "total_score": game.total_score,
+            "elapsed_seconds": self.elapsed_seconds(game),
             "actual": {
                 "lat": location["lat"],
                 "lng": location["lng"],

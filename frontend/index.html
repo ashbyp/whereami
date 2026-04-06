@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>whereami</title>
-    <link rel="stylesheet" href="/assets/styles.css?v=16" />
+    <link rel="stylesheet" href="/assets/styles.css?v=19" />
   </head>
   <body>
     <main class="app-shell">
@@ -35,15 +35,65 @@
             <span id="round-counter">0/5</span>
             <span class="score-separator"></span>
             <span id="score-counter">0</span>
+            <span class="score-separator"></span>
+            <span id="timer-counter">00:00</span>
           </div>
           <button id="back-to-start" class="secondary-button" disabled>
             Back to start
           </button>
           <button id="start-game" class="primary-button" disabled>New game</button>
+          <div id="session-summary" class="session-summary hidden">
+            <button id="avatar-button" class="avatar-button" type="button">
+              <div class="avatar-shell">
+              <img id="avatar-image" class="avatar-image hidden" alt="Avatar" />
+              <span id="avatar-fallback" class="avatar-fallback">?</span>
+              </div>
+            </button>
+            <div class="session-copy">
+              <span id="session-name" class="session-name"></span>
+              <span id="session-kind" class="session-kind"></span>
+            </div>
+            <button id="logout-button" class="secondary-button compact-button">
+              Log out
+            </button>
+          </div>
         </div>
       </header>
+      <input id="profile-avatar-input" class="hidden-file-input" type="file" accept="image/*" />
 
       <p id="status-message" class="status-message"></p>
+      <section id="auth-card" class="auth-card hidden">
+        <div class="auth-column">
+          <h2 class="auth-title">Sign in or play as guest</h2>
+          <label class="field">
+            <span>Email</span>
+            <input id="auth-email" type="email" placeholder="you@example.com" />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input id="auth-password" type="password" placeholder="At least 8 characters" />
+          </label>
+          <label class="field">
+            <span>Avatar image (optional)</span>
+            <input id="auth-avatar" type="file" accept="image/*" />
+          </label>
+          <div class="auth-actions">
+            <button id="register-button" class="primary-button">Register</button>
+            <button id="login-button" class="secondary-button">Log in</button>
+          </div>
+        </div>
+        <div class="auth-divider"></div>
+        <div class="auth-column guest-column">
+          <h2 class="auth-title">Guest mode</h2>
+          <label class="field">
+            <span>Display name (optional)</span>
+            <input id="guest-name" type="text" placeholder="Guest explorer" />
+          </label>
+          <button id="guest-button" class="primary-button">Continue as guest</button>
+        </div>
+      </section>
+
+      <section id="best-times" class="best-times hidden"></section>
 
       <section class="game-layout">
         <div class="card panorama-card">
@@ -86,6 +136,6 @@
       </section>
     </main>
 
-    <script src="/assets/app.js?v=16" type="module"></script>
+    <script src="/assets/app.js?v=19" type="module"></script>
   </body>
 </html>
