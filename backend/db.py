@@ -212,7 +212,7 @@ class Database:
         *,
         user_id: str | None,
         guest_name: str | None,
-        difficulty: str,
+        mode: str,
         total_score: int,
         elapsed_seconds: int,
     ) -> None:
@@ -226,7 +226,7 @@ class Database:
                     str(uuid4()),
                     user_id,
                     guest_name,
-                    difficulty,
+                    mode,
                     total_score,
                     elapsed_seconds,
                     utc_now(),
@@ -237,16 +237,16 @@ class Database:
         with self._connect() as connection:
             rows = connection.execute(
                 """
-                SELECT difficulty, MAX(total_score) AS best_score
+                SELECT difficulty AS mode, MAX(total_score) AS best_score
                 FROM game_results
                 WHERE user_id = ?
                 GROUP BY difficulty
                 """,
                 (user_id,),
             ).fetchall()
-        return {row["difficulty"]: int(row["best_score"]) for row in rows}
+        return {row["mode"]: int(row["best_score"]) for row in rows}
 
-    def clear_best_score(self, user_id: str, difficulty: str) -> None:
+    def clear_best_score(self, user_id: str, mode: str) -> None:
         with self._connect() as connection:
             row = connection.execute(
                 """
@@ -256,7 +256,7 @@ class Database:
                 ORDER BY total_score DESC, completed_at ASC
                 LIMIT 1
                 """,
-                (user_id, difficulty),
+                (user_id, mode),
             ).fetchone()
             if row is None:
                 return
@@ -269,5 +269,5 @@ class Database:
     def get_best_times(self, user_id: str) -> dict[str, int]:
         return self.get_best_scores(user_id)
 
-    def clear_best_time(self, user_id: str, difficulty: str) -> None:
-        self.clear_best_score(user_id, difficulty)
+    def clear_best_time(self, user_id: str, mode: str) -> None:
+        self.clear_best_score(user_id, mode)

@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 from .auth import AuthService
 from .db import Database
-from .game import DIFFICULTY_LEVELS, GAME_MODES, GameStore
+from .game import GAME_MODES, GameStore
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
@@ -96,7 +96,6 @@ def get_config() -> dict[str, Any]:
     return {
         "google_maps_api_key": api_key,
         "configured": bool(api_key),
-        "difficulties": list(DIFFICULTY_LEVELS),
         "game_modes": list(GAME_MODES),
     }
 
@@ -157,27 +156,27 @@ def logout(x_session_token: str | None = Header(default=None)) -> dict[str, bool
     return {"ok": True}
 
 
-@app.delete("/api/stats/best-score/{difficulty}")
+@app.delete("/api/stats/best-score/{mode}")
 def clear_best_score(
-    difficulty: str,
+    mode: str,
     x_session_token: str | None = Header(default=None),
 ) -> dict[str, Any]:
     if not x_session_token:
         raise HTTPException(status_code=401, detail="Missing session.")
     try:
-        return auth_service.clear_best_score(x_session_token, difficulty)
+        return auth_service.clear_best_score(x_session_token, mode)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except KeyError as exc:
         raise HTTPException(status_code=401, detail="Session expired.") from exc
 
 
-@app.delete("/api/stats/best-time/{difficulty}")
+@app.delete("/api/stats/best-time/{mode}")
 def clear_best_time_compat(
-    difficulty: str,
+    mode: str,
     x_session_token: str | None = Header(default=None),
 ) -> dict[str, Any]:
-    return clear_best_score(difficulty, x_session_token)
+    return clear_best_score(mode, x_session_token)
 
 
 @app.post("/api/game/new")
@@ -226,7 +225,7 @@ def submit_guess(
             database.record_game_result(
                 user_id=user["id"] if user["kind"] == "user" else None,
                 guest_name=user["display_name"] if user["kind"] == "guest" else None,
-                difficulty=game_store.get_game(game_id, session["token"]).mode,
+                mode=game_store.get_game(game_id, session["token"]).mode,
                 total_score=result["total_score"],
                 elapsed_seconds=result["elapsed_seconds"],
             )

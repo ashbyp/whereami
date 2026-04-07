@@ -7,7 +7,7 @@
 - Interactive Google Street View rounds
 - Guessing map with result markers and distance line
 - 5-round games with timer and scoring
-- Difficulty modes: `easy`, `medium`, `hard`, `impossible`
+- Subject modes including `easy`, `medium`, `hard`, and `impossible`
 - Guest play
 - Email/password accounts
 - Avatar upload
@@ -152,7 +152,7 @@ Main backend files:
   - SQLite storage for users, sessions, and best times
 - `backend/game.py`
   - in-memory active game store
-  - difficulty handling
+  - mode selection and gameplay rule handling
   - round progression
 - `backend/locations.json`
   - seed locations for round generation
@@ -170,7 +170,7 @@ Key endpoints:
 - `POST /api/game/new`
 - `GET /api/game/{game_id}`
 - `POST /api/game/{game_id}/guess`
-- `DELETE /api/stats/best-time/{difficulty}`
+- `DELETE /api/stats/best-time/{mode}`
 
 ## Frontend overview
 

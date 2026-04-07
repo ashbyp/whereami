@@ -13,8 +13,12 @@ from .scoring import haversine_distance_meters, score_guess
 
 LOCATIONS_PATH = Path(__file__).with_name("locations.json")
 ROUNDS_PER_GAME = 5
-DIFFICULTY_LEVELS = ("easy", "medium", "hard", "impossible")
+RULE_SUBJECT_IDS = ("easy", "medium", "hard", "impossible")
 SUBJECTS: tuple[dict[str, str], ...] = (
+    {"id": "easy", "label": "Easy"},
+    {"id": "medium", "label": "Medium"},
+    {"id": "hard", "label": "Hard"},
+    {"id": "impossible", "label": "Impossible"},
     {"id": "european-capitals", "label": "European Capitals"},
     {"id": "us-states", "label": "US States"},
     {"id": "world-capitals", "label": "World Capitals"},
@@ -22,17 +26,11 @@ SUBJECTS: tuple[dict[str, str], ...] = (
     {"id": "uk-countryside", "label": "UK Countryside"},
 )
 SUBJECT_IDS = tuple(subject["id"] for subject in SUBJECTS)
-SUBJECT_RULE_DIFFICULTY = "medium"
-GAME_MODES: tuple[dict[str, str], ...] = (
-    {"id": "easy", "label": "Easy"},
-    {"id": "medium", "label": "Medium"},
-    {"id": "hard", "label": "Hard"},
-    {"id": "impossible", "label": "Impossible"},
-    *SUBJECTS,
-)
+DEFAULT_RULE_SUBJECT = "medium"
+GAME_MODES: tuple[dict[str, str], ...] = SUBJECTS
 GAME_MODE_LABELS = {mode["id"]: mode["label"] for mode in GAME_MODES}
 
-DIFFICULTY_RULES: dict[str, dict[str, Any]] = {
+SUBJECT_RULES: dict[str, dict[str, Any]] = {
     "easy": {
         "movement_allowed": True,
         "zoom_allowed": True,
@@ -72,7 +70,7 @@ class GameState:
     game_id: str
     owner_token: str
     mode: str
-    rules_difficulty: str
+    rules_subject: str
     rounds: list[RoundState]
     started_at: float
     current_round_index: int = 0
@@ -96,20 +94,12 @@ class GameStore:
             msg = f"Mode must be one of: {', '.join(GAME_MODE_LABELS)}."
             raise ValueError(msg)
 
-        if mode in DIFFICULTY_LEVELS:
-            rules_difficulty = mode
-            eligible_locations = [
-                location
-                for location in self._locations
-                if rules_difficulty in location.get("difficulties", [])
-            ]
-        else:
-            rules_difficulty = SUBJECT_RULE_DIFFICULTY
-            eligible_locations = [
-                location
-                for location in self._locations
-                if mode in location.get("subjects", [])
-            ]
+        rules_subject = mode if mode in RULE_SUBJECT_IDS else DEFAULT_RULE_SUBJECT
+        eligible_locations = [
+            location
+            for location in self._locations
+            if mode in location.get("subjects", [])
+        ]
         if len(eligible_locations) < ROUNDS_PER_GAME:
             msg = f"Not enough locations configured for '{mode}'."
             raise ValueError(msg)
@@ -118,7 +108,7 @@ class GameStore:
         rounds = [
             RoundState(
                 round_id=str(uuid4()),
-                location=self._build_round_location(location, rules_difficulty),
+                location=self._build_round_location(location, rules_subject),
             )
             for location in sampled_locations
         ]
@@ -127,7 +117,7 @@ class GameStore:
             game_id=str(uuid4()),
             owner_token=owner_token,
             mode=mode,
-            rules_difficulty=rules_difficulty,
+            rules_subject=rules_subject,
             rounds=rounds,
             started_at=time.time(),
         )
@@ -137,9 +127,9 @@ class GameStore:
     def _build_round_location(
         self,
         seed_location: dict[str, Any],
-        difficulty: str,
+        rules_subject: str,
     ) -> dict[str, Any]:
-        rules = DIFFICULTY_RULES[difficulty]
+        rules = SUBJECT_RULES[rules_subject]
         radius_meters = seed_location.get("radius_meters", 900) * rules["radius_multiplier"]
         lat, lng = self._random_offset(
             seed_location["lat"],
@@ -157,7 +147,7 @@ class GameStore:
             "lat": round(lat, 6),
             "lng": round(lng, 6),
             "heading": heading,
-            "difficulty": difficulty,
+            "rules_subject": rules_subject,
             "movement_allowed": rules["movement_allowed"],
             "zoom_allowed": rules["zoom_allowed"],
             "zoom": 1 if rules["zoom_allowed"] else 0,

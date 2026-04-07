@@ -74,12 +74,12 @@ class AuthService:
     def logout(self, token: str) -> None:
         self.database.delete_session(token)
 
-    def clear_best_score(self, token: str, difficulty: str) -> dict[str, Any]:
+    def clear_best_score(self, token: str, mode: str) -> dict[str, Any]:
         session = self.database.get_session(token)
         user = session["user"]
         if user["kind"] != "user":
             raise ValueError("Guests do not have saved best scores.")
-        self.database.clear_best_score(user["id"], difficulty)
+        self.database.clear_best_score(user["id"], mode)
         best_scores = self.database.get_best_scores(user["id"])
         return {
             "token": token,
@@ -89,5 +89,5 @@ class AuthService:
         }
 
     # Backward-compatible alias.
-    def clear_best_time(self, token: str, difficulty: str) -> dict[str, Any]:
-        return self.clear_best_score(token, difficulty)
+    def clear_best_time(self, token: str, mode: str) -> dict[str, Any]:
+        return self.clear_best_score(token, mode)

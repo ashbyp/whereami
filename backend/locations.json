@@ -8,13 +8,8 @@
     "heading": 92,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -28,13 +23,8 @@
     "heading": 110,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -48,13 +38,8 @@
     "heading": 58,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -68,13 +53,8 @@
     "heading": 145,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -88,13 +68,8 @@
     "heading": 215,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -108,13 +83,8 @@
     "heading": 188,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -128,13 +98,8 @@
     "heading": 135,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -148,13 +113,8 @@
     "heading": 72,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -168,13 +128,8 @@
     "heading": 240,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -188,13 +143,8 @@
     "heading": 314,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -208,13 +158,8 @@
     "heading": 164,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -228,13 +173,8 @@
     "heading": 228,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -248,13 +188,8 @@
     "heading": 118,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -268,13 +203,8 @@
     "heading": 204,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -288,13 +218,8 @@
     "heading": 82,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -308,13 +233,8 @@
     "heading": 41,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -328,13 +248,8 @@
     "heading": 266,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -348,13 +263,8 @@
     "heading": 54,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -368,13 +278,8 @@
     "heading": 128,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -388,13 +293,8 @@
     "heading": 322,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -408,13 +308,8 @@
     "heading": 205,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -428,13 +323,8 @@
     "heading": 178,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -448,13 +338,8 @@
     "heading": 93,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -468,13 +353,8 @@
     "heading": 250,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -488,13 +368,8 @@
     "heading": 44,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -508,13 +383,8 @@
     "heading": 199,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -528,13 +398,8 @@
     "heading": 136,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -548,13 +413,8 @@
     "heading": 302,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -568,13 +428,8 @@
     "heading": 119,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -588,13 +443,8 @@
     "heading": 188,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -608,13 +458,8 @@
     "heading": 67,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -628,13 +473,8 @@
     "heading": 247,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "european-capitals",
       "world-capitals"
     ]
@@ -648,13 +488,8 @@
     "heading": 157,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -668,13 +503,8 @@
     "heading": 91,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -688,13 +518,8 @@
     "heading": 273,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -708,13 +533,8 @@
     "heading": 129,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "european-capitals",
       "world-capitals"
     ]
@@ -728,13 +548,8 @@
     "heading": 208,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -748,13 +563,8 @@
     "heading": 84,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "european-capitals",
       "world-capitals"
     ]
@@ -768,13 +578,8 @@
     "heading": 312,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -788,13 +593,8 @@
     "heading": 173,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "european-capitals",
       "world-capitals"
     ]
@@ -808,13 +608,8 @@
     "heading": 270,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -827,13 +622,8 @@
     "heading": 128,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -846,13 +636,8 @@
     "heading": 45,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -865,13 +650,8 @@
     "heading": 205,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -884,13 +664,8 @@
     "heading": 322,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -903,13 +678,8 @@
     "heading": 182,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -922,13 +692,8 @@
     "heading": 116,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -941,13 +706,8 @@
     "heading": 231,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -960,13 +720,8 @@
     "heading": 147,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -979,13 +734,8 @@
     "heading": 77,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -998,13 +748,8 @@
     "heading": 263,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1017,13 +762,8 @@
     "heading": 188,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1036,13 +776,8 @@
     "heading": 95,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -1055,13 +790,8 @@
     "heading": 204,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -1074,13 +804,8 @@
     "heading": 341,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1093,13 +818,8 @@
     "heading": 122,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -1112,13 +832,8 @@
     "heading": 251,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1131,13 +846,8 @@
     "heading": 101,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -1150,13 +860,8 @@
     "heading": 214,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1169,13 +874,8 @@
     "heading": 67,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -1188,13 +888,8 @@
     "heading": 198,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -1207,13 +902,8 @@
     "heading": 293,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -1226,13 +916,8 @@
     "heading": 81,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1245,13 +930,8 @@
     "heading": 168,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1264,13 +944,8 @@
     "heading": 218,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1283,13 +958,8 @@
     "heading": 97,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1302,13 +972,8 @@
     "heading": 146,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1321,13 +986,8 @@
     "heading": 271,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1340,13 +1000,8 @@
     "heading": 63,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1359,13 +1014,8 @@
     "heading": 204,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -1378,13 +1028,8 @@
     "heading": 111,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -1397,13 +1042,8 @@
     "heading": 254,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -1416,13 +1056,8 @@
     "heading": 166,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1435,13 +1070,8 @@
     "heading": 97,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "world-capitals"
     ]
   },
@@ -1454,13 +1084,8 @@
     "heading": 222,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "world-capitals"
     ]
   },
@@ -1473,13 +1098,8 @@
     "heading": 78,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1492,13 +1112,8 @@
     "heading": 183,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "world-capitals"
     ]
   },
@@ -1511,13 +1126,8 @@
     "heading": 301,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -1530,13 +1140,8 @@
     "heading": 126,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "world-capitals"
     ]
   },
@@ -1549,13 +1154,8 @@
     "heading": 175,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -1568,13 +1168,8 @@
     "heading": 98,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1587,13 +1182,8 @@
     "heading": 210,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -1606,13 +1196,8 @@
     "heading": 350,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -1625,13 +1210,8 @@
     "heading": 84,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -1644,13 +1224,8 @@
     "heading": 46,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -1663,13 +1238,8 @@
     "heading": 132,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "us-states"
     ]
   },
@@ -1682,13 +1252,8 @@
     "heading": 298,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1701,13 +1266,8 @@
     "heading": 74,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -1720,13 +1280,8 @@
     "heading": 241,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1739,13 +1294,8 @@
     "heading": 182,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -1758,13 +1308,8 @@
     "heading": 96,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1777,13 +1322,8 @@
     "heading": 226,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1796,13 +1336,8 @@
     "heading": 335,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1815,13 +1350,8 @@
     "heading": 119,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "us-states"
     ]
   },
@@ -1834,13 +1364,8 @@
     "heading": 209,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1853,13 +1378,8 @@
     "heading": 49,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "us-states"
     ]
   },
@@ -1872,13 +1392,8 @@
     "heading": 301,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -1891,13 +1406,8 @@
     "heading": 154,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1910,13 +1420,8 @@
     "heading": 83,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -1929,13 +1434,8 @@
     "heading": 214,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -1948,13 +1448,8 @@
     "heading": 346,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -1967,13 +1462,8 @@
     "heading": 108,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -1986,13 +1476,8 @@
     "heading": 268,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -2005,13 +1490,8 @@
     "heading": 175,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -2024,13 +1504,8 @@
     "heading": 62,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -2043,13 +1518,8 @@
     "heading": 298,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "us-states"
     ]
   },
@@ -2062,13 +1532,8 @@
     "heading": 143,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -2081,13 +1546,8 @@
     "heading": 202,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "us-states"
     ]
   },
@@ -2100,13 +1560,8 @@
     "heading": 91,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "us-states"
     ]
   },
@@ -2119,13 +1574,8 @@
     "heading": 187,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "us-states"
     ]
   },
@@ -2138,13 +1588,8 @@
     "heading": 266,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "us-states"
     ]
   },
@@ -2157,13 +1602,8 @@
     "heading": 150,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2176,13 +1616,8 @@
     "heading": 246,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "towns-in-england"
     ]
   },
@@ -2195,13 +1630,8 @@
     "heading": 45,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2214,13 +1644,8 @@
     "heading": 185,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "towns-in-england"
     ]
   },
@@ -2233,13 +1658,8 @@
     "heading": 305,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "towns-in-england"
     ]
   },
@@ -2252,13 +1672,8 @@
     "heading": 126,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2271,13 +1686,8 @@
     "heading": 332,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "towns-in-england"
     ]
   },
@@ -2290,13 +1700,8 @@
     "heading": 84,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2309,13 +1714,8 @@
     "heading": 216,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "towns-in-england"
     ]
   },
@@ -2328,13 +1728,8 @@
     "heading": 53,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2347,13 +1742,8 @@
     "heading": 144,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2366,13 +1756,8 @@
     "heading": 317,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "towns-in-england"
     ]
   },
@@ -2385,13 +1770,8 @@
     "heading": 198,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "towns-in-england"
     ]
   },
@@ -2404,13 +1784,8 @@
     "heading": 63,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2423,13 +1798,8 @@
     "heading": 251,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2442,13 +1812,8 @@
     "heading": 131,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2461,13 +1826,8 @@
     "heading": 283,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2480,13 +1840,8 @@
     "heading": 102,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "towns-in-england"
     ]
   },
@@ -2499,13 +1854,8 @@
     "heading": 184,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2518,13 +1868,8 @@
     "heading": 52,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "towns-in-england"
     ]
   },
@@ -2537,13 +1882,8 @@
     "heading": 236,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "towns-in-england"
     ]
   },
@@ -2556,13 +1896,8 @@
     "heading": 121,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2575,13 +1910,8 @@
     "heading": 312,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2594,13 +1924,8 @@
     "heading": 91,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2613,13 +1938,8 @@
     "heading": 207,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2632,13 +1952,8 @@
     "heading": 44,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "towns-in-england"
     ]
   },
@@ -2651,13 +1966,8 @@
     "heading": 174,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "towns-in-england"
     ]
   },
@@ -2670,13 +1980,8 @@
     "heading": 274,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "towns-in-england"
     ]
   },
@@ -2689,13 +1994,8 @@
     "heading": 84,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "uk-countryside"
     ]
   },
@@ -2708,13 +2008,8 @@
     "heading": 156,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   },
@@ -2727,13 +2022,8 @@
     "heading": 24,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "uk-countryside"
     ]
   },
@@ -2746,13 +2036,8 @@
     "heading": 192,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "uk-countryside"
     ]
   },
@@ -2765,13 +2050,8 @@
     "heading": 286,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   },
@@ -2784,13 +2064,8 @@
     "heading": 142,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "uk-countryside"
     ]
   },
@@ -2803,13 +2078,8 @@
     "heading": 68,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "uk-countryside"
     ]
   },
@@ -2822,13 +2092,8 @@
     "heading": 121,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "uk-countryside"
     ]
   },
@@ -2841,13 +2106,8 @@
     "heading": 305,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   },
@@ -2860,13 +2120,8 @@
     "heading": 84,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "uk-countryside"
     ]
   },
@@ -2879,13 +2134,8 @@
     "heading": 189,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "uk-countryside"
     ]
   },
@@ -2898,13 +2148,8 @@
     "heading": 42,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   },
@@ -2917,13 +2162,8 @@
     "heading": 237,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "uk-countryside"
     ]
   },
@@ -2936,13 +2176,8 @@
     "heading": 147,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "uk-countryside"
     ]
   },
@@ -2955,13 +2190,8 @@
     "heading": 316,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "uk-countryside"
     ]
   },
@@ -2974,13 +2204,8 @@
     "heading": 73,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "uk-countryside"
     ]
   },
@@ -2993,13 +2218,8 @@
     "heading": 206,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   },
@@ -3012,13 +2232,8 @@
     "heading": 118,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   },
@@ -3031,13 +2246,8 @@
     "heading": 289,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "uk-countryside"
     ]
   },
@@ -3050,13 +2260,8 @@
     "heading": 161,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "uk-countryside"
     ]
   },
@@ -3069,13 +2274,8 @@
     "heading": 36,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "uk-countryside"
     ]
   },
@@ -3088,13 +2288,8 @@
     "heading": 252,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "uk-countryside"
     ]
   },
@@ -3107,13 +2302,8 @@
     "heading": 118,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "uk-countryside"
     ]
   },
@@ -3126,13 +2316,8 @@
     "heading": 207,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   },
@@ -3145,13 +2330,8 @@
     "heading": 87,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "hard",
       "uk-countryside"
     ]
   },
@@ -3164,13 +2344,8 @@
     "heading": 279,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "impossible",
       "uk-countryside"
     ]
   },
@@ -3183,13 +2358,8 @@
     "heading": 146,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "medium",
       "uk-countryside"
     ]
   },
@@ -3202,13 +2372,8 @@
     "heading": 341,
     "pitch": 0,
     "zoom": 1,
-    "difficulties": [
-      "easy",
-      "medium",
-      "hard",
-      "impossible"
-    ],
     "subjects": [
+      "easy",
       "uk-countryside"
     ]
   }
