@@ -472,42 +472,82 @@ function showStreetViewCanvas() {
   elements.streetViewEmpty.textContent = "";
 }
 
-function loadPanorama(prompt) {
+function requestPanorama(request) {
   return new Promise((resolve, reject) => {
-    state.streetViewService.getPanorama(
-      {
-        location: { lat: prompt.lat, lng: prompt.lng },
-        radius: 250,
-        source: state.google.maps.StreetViewSource.OUTDOOR,
-        preference: state.google.maps.StreetViewPreference.NEAREST,
-      },
-      (data, status) => {
-        if (status !== "OK" || !data?.location?.latLng) {
-          reject(new Error("No Street View coverage was found for this round."));
-          return;
-        }
-
-        state.panorama.setOptions({
-          pano: data.location.pano,
-          pov: {
-            heading: prompt.heading,
-            pitch: prompt.pitch,
-          },
-          linksControl: true,
-          zoom: prompt.zoom,
-        });
-        state.startView = {
-          pano: data.location.pano,
-          pov: {
-            heading: prompt.heading,
-            pitch: prompt.pitch,
-          },
-          zoom: prompt.zoom,
-        };
-        resolve();
+    state.streetViewService.getPanorama(request, (data, status) => {
+      if (status !== "OK" || !data?.location?.latLng) {
+        reject(status);
+        return;
       }
-    );
+
+      resolve(data);
+    });
   });
+}
+
+async function loadPanorama(prompt) {
+  const attempts = [
+    {
+      radius: 250,
+      source: state.google.maps.StreetViewSource.OUTDOOR,
+    },
+    {
+      radius: 750,
+      source: state.google.maps.StreetViewSource.OUTDOOR,
+    },
+    {
+      radius: 250,
+      source: state.google.maps.StreetViewSource.DEFAULT,
+    },
+    {
+      radius: 1000,
+      source: state.google.maps.StreetViewSource.DEFAULT,
+    },
+    {
+      radius: 2000,
+      source: state.google.maps.StreetViewSource.DEFAULT,
+    },
+  ];
+
+  let lastStatus = "UNKNOWN_ERROR";
+  for (const attempt of attempts) {
+    try {
+      const data = await requestPanorama({
+        location: { lat: prompt.lat, lng: prompt.lng },
+        radius: attempt.radius,
+        source: attempt.source,
+        preference: state.google.maps.StreetViewPreference.NEAREST,
+      });
+
+      state.panorama.setOptions({
+        pano: data.location.pano,
+        pov: {
+          heading: prompt.heading,
+          pitch: prompt.pitch,
+        },
+        linksControl: true,
+        zoom: prompt.zoom,
+      });
+      state.startView = {
+        pano: data.location.pano,
+        pov: {
+          heading: prompt.heading,
+          pitch: prompt.pitch,
+        },
+        zoom: prompt.zoom,
+      };
+      return;
+    } catch (status) {
+      lastStatus = status;
+    }
+  }
+
+  const details =
+    typeof lastStatus === "string" && lastStatus && lastStatus !== "ZERO_RESULTS"
+      ? ` (${lastStatus})`
+      : "";
+
+  throw new Error(`No Street View coverage was found for this round${details}.`);
 }
 
 function resetToStartView() {
