@@ -22,6 +22,7 @@ SUBJECTS: tuple[dict[str, str], ...] = (
     {"id": "european-capitals", "label": "European Capitals"},
     {"id": "us-states", "label": "US States"},
     {"id": "world-capitals", "label": "World Capitals"},
+    {"id": "famous-landmarks", "label": "Famous Landmarks"},
     {"id": "towns-in-england", "label": "Towns In England"},
     {"id": "uk-countryside", "label": "UK Countryside"},
 )

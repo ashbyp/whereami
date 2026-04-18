@@ -2376,5 +2376,265 @@
       "easy",
       "uk-countryside"
     ]
+  },
+  {
+    "label": "Road by Eiffel Tower",
+    "country": "France",
+    "lat": 48.85837,
+    "lng": 2.29448,
+    "radius_meters": 650,
+    "heading": 120,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street near Colosseum",
+    "country": "Italy",
+    "lat": 41.89021,
+    "lng": 12.49223,
+    "radius_meters": 700,
+    "heading": 205,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road by Big Ben",
+    "country": "United Kingdom",
+    "lat": 51.50073,
+    "lng": -0.12463,
+    "radius_meters": 650,
+    "heading": 45,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Avenue near Arc de Triomphe",
+    "country": "France",
+    "lat": 48.87379,
+    "lng": 2.29503,
+    "radius_meters": 700,
+    "heading": 275,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street by Sagrada Familia",
+    "country": "Spain",
+    "lat": 41.40363,
+    "lng": 2.17436,
+    "radius_meters": 700,
+    "heading": 150,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road near Brandenburg Gate",
+    "country": "Germany",
+    "lat": 52.51627,
+    "lng": 13.37769,
+    "radius_meters": 700,
+    "heading": 95,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street by Acropolis of Athens",
+    "country": "Greece",
+    "lat": 37.97153,
+    "lng": 23.72575,
+    "radius_meters": 750,
+    "heading": 25,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road near Statue of Liberty Ferry View",
+    "country": "United States",
+    "lat": 40.69946,
+    "lng": -74.04004,
+    "radius_meters": 900,
+    "heading": 62,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Avenue by Christ the Redeemer Viewpoint",
+    "country": "Brazil",
+    "lat": -22.95192,
+    "lng": -43.21049,
+    "radius_meters": 850,
+    "heading": 310,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street near Sydney Opera House",
+    "country": "Australia",
+    "lat": -33.85678,
+    "lng": 151.2153,
+    "radius_meters": 750,
+    "heading": 185,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road by Taj Mahal Entrance",
+    "country": "India",
+    "lat": 27.17514,
+    "lng": 78.04214,
+    "radius_meters": 800,
+    "heading": 10,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street near Great Pyramid Viewpoint",
+    "country": "Egypt",
+    "lat": 29.97648,
+    "lng": 31.1313,
+    "radius_meters": 900,
+    "heading": 135,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road by Angkor Wat",
+    "country": "Cambodia",
+    "lat": 13.41247,
+    "lng": 103.86699,
+    "radius_meters": 850,
+    "heading": 270,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street by Petra Treasury View",
+    "country": "Jordan",
+    "lat": 30.32846,
+    "lng": 35.44436,
+    "radius_meters": 850,
+    "heading": 200,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road near Machu Picchu Access",
+    "country": "Peru",
+    "lat": -13.16314,
+    "lng": -72.54502,
+    "radius_meters": 900,
+    "heading": 55,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Avenue near Chichen Itza",
+    "country": "Mexico",
+    "lat": 20.68428,
+    "lng": -88.56778,
+    "radius_meters": 850,
+    "heading": 330,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road by Mount Fuji Lake View",
+    "country": "Japan",
+    "lat": 35.48694,
+    "lng": 138.76877,
+    "radius_meters": 900,
+    "heading": 20,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street by Burj Khalifa",
+    "country": "United Arab Emirates",
+    "lat": 25.1972,
+    "lng": 55.27438,
+    "radius_meters": 700,
+    "heading": 245,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Road near Table Mountain Cableway",
+    "country": "South Africa",
+    "lat": -33.96282,
+    "lng": 18.4107,
+    "radius_meters": 850,
+    "heading": 300,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
+  },
+  {
+    "label": "Street by Golden Gate Bridge Vista",
+    "country": "United States",
+    "lat": 37.80787,
+    "lng": -122.47509,
+    "radius_meters": 850,
+    "heading": 142,
+    "pitch": 0,
+    "zoom": 1,
+    "subjects": [
+      "famous-landmarks"
+    ]
   }
 ]
