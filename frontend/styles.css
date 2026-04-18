@@ -441,6 +441,29 @@ p {
   font-size: 0.9rem;
 }
 
+#submit-guess {
+  padding: 12px 22px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  min-width: 110px;
+  color: #fff;
+  border: 0;
+  background: linear-gradient(135deg, #cc4b37 0%, #a63120 100%);
+  box-shadow: 0 12px 24px rgba(166, 49, 32, 0.34);
+}
+
+#submit-guess:hover:not(:disabled) {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 16px 28px rgba(166, 49, 32, 0.42);
+}
+
+#submit-guess:disabled {
+  background: linear-gradient(135deg, #cc4b37 0%, #a63120 100%);
+  border: 0;
+  opacity: 0.78;
+}
+
 .map-overlay .guess-map {
   min-height: 150px;
   height: 150px;
